@@ -482,7 +482,14 @@ public:
 		SexIrcOp             = 315,
 		MemoServ             = 316,
 		Info                 = 317,
-		IconCount            = 318
+		Warning              = 318,
+		Shield               = 319,
+		RawEventEditor       = 320,
+		EventEditor          = 321,
+		ActionEditor         = 322,
+		AliasEditor          = 323,
+		PopupEditor          = 324,
+		IconCount            = 325
 	};
 
 	/**

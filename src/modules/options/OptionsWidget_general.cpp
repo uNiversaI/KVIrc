@@ -35,10 +35,13 @@ OptionsWidget_general::OptionsWidget_general(QWidget * parent)
 	setObjectName("generalopt_options_widget");
 	createLayout();
 
-	addLabel(0,0,4,0,__tr2qs_ctx("This section contains the general client options<br>"\
-		"<p>like<b> sound, mediafiles, URL handler </b> etc... " \
-		"</p>","options"));
-	addAdvancedButton(4,1,4,1);
+	addLabel(0,0,4,0,__tr2qs_ctx("This section contains the general client options "\
+		"like <b>sound, mediafiles, URL handlers</b> etc... " \
+		"","options"));
+
+	addRowSpacer(0,1,0,1);
+
+	//addAdvancedButton(4,1,4,1);
 }
 
 OptionsWidget_general::~OptionsWidget_general()

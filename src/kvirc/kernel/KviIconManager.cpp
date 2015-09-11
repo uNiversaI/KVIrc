@@ -400,7 +400,15 @@ static const char * g_szIconNames[KviIconManager::IconCount] =
 	"sexbot",              // 314
 	"sexircop",            // 315
 	"memoserv",            // 316
-	"info"                 // 317
+	"info",                // 317
+	"warning",             // 318
+	"shield",              // 319
+	"raweventeditor",      // 320
+	"eventeditor",         // 321
+	"actioneditor",        // 322
+	"aliaseditor",         // 323
+	"popupeditor"          // 324
+
 };
 
 KviIconWidget::KviIconWidget()
@@ -914,6 +922,13 @@ KviIconManager::SmallIcon KviIconManager::iconName(int iIcon)
 		case 315: return KviIconManager::SexIrcOp;             break;
 		case 316: return KviIconManager::MemoServ;             break;
 		case 317: return KviIconManager::Info;                 break;
+		case 318: return KviIconManager::Warning;              break;
+		case 319: return KviIconManager::Shield;               break;
+		case 320: return KviIconManager::RawEventEditor;       break;
+		case 321: return KviIconManager::EventEditor;          break;
+		case 322: return KviIconManager::ActionEditor;         break;
+		case 323: return KviIconManager::AliasEditor;          break;
+		case 324: return KviIconManager::PopupEditor;          break;
 		case   0:
 		case KviIconManager::IconCount:
 		default: return KviIconManager::None;                  break;
