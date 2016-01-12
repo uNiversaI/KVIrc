@@ -748,7 +748,7 @@ KviMessageTypeSettingsOption g_msgtypeOptionsTable[KVI_NUM_MSGTYPE_OPTIONS]=
 {
 	MSGTYPE_OPTION("Echo",__tr_no_lookup("Normal text"),KviIconManager::None,KVI_MSGTYPE_LEVEL_1),
 	MSGTYPE_OPTION_SPEC("Selection",__tr_no_lookup("Selection"),KviIconManager::None,KviControlCodes::White,KviControlCodes::Black,KVI_MSGTYPE_LEVEL_1),
-	MSGTYPE_OPTION_SPEC("Highlight",__tr_no_lookup("Highlighted text"),KviIconManager::Notifier,KviControlCodes::White,KviControlCodes::Black,KVI_MSGTYPE_LEVEL_5),
+	MSGTYPE_OPTION_SPEC("Highlight",__tr_no_lookup("Highlighted text"),KviIconManager::HighlightText,KviControlCodes::White,KviControlCodes::Black,KVI_MSGTYPE_LEVEL_5),
 	MSGTYPE_OPTION_SPEC("Url",__tr_no_lookup("URL foreground"),KviIconManager::Url,KviControlCodes::Blue,KviControlCodes::Transparent,KVI_MSGTYPE_LEVEL_1),
 	MSGTYPE_OPTION_SPEC("Link",__tr_no_lookup("Link overlay foreground"),KviIconManager::Url,KviControlCodes::Blue,KviControlCodes::Transparent,KVI_MSGTYPE_LEVEL_1),
 	MSGTYPE_OPTION_SPEC("ParserError",__tr_no_lookup("Parser error"),KviIconManager::ParserError,KviControlCodes::Red,KviControlCodes::Transparent,KVI_MSGTYPE_LEVEL_2),
@@ -819,7 +819,7 @@ KviMessageTypeSettingsOption g_msgtypeOptionsTable[KVI_NUM_MSGTYPE_OPTIONS]=
 	MSGTYPE_OPTION("Irc",__tr_no_lookup("Login operations completed"),KviIconManager::Irc,KVI_MSGTYPE_LEVEL_1),
 	MSGTYPE_OPTION("Kick",__tr_no_lookup("Kick action"),KviIconManager::Kick,KVI_MSGTYPE_LEVEL_2),
 	MSGTYPE_OPTION("Links",__tr_no_lookup("Links reply"),KviIconManager::Links,KVI_MSGTYPE_LEVEL_1),
-	MSGTYPE_OPTION("Spam",__tr_no_lookup("Spam report"),KviIconManager::Remove,KVI_MSGTYPE_LEVEL_3),
+	MSGTYPE_OPTION("Spam",__tr_no_lookup("Spam report"),KviIconManager::Spam,KVI_MSGTYPE_LEVEL_3),
 	MSGTYPE_OPTION("Icq",__tr_no_lookup("ICQ message"),KviIconManager::Icq,KVI_MSGTYPE_LEVEL_1),
 	MSGTYPE_OPTION("IcqMessage",__tr_no_lookup("ICQ user-message"),KviIconManager::Message,KVI_MSGTYPE_LEVEL_1),
 	MSGTYPE_OPTION("IcqMessageSent",__tr_no_lookup("Outgoing ICQ user-message"),KviIconManager::MessageSent,KVI_MSGTYPE_LEVEL_1),

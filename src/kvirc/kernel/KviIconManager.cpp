@@ -88,7 +88,7 @@ static const char * g_szIconNames[KviIconManager::IconCount] =
 	"history",             // 2
 	"historyoff",          // 3
 	"usermode",            // 4
-	"default",             // 5
+	"defaulticon",         // 5
 	"dock",                // 6
 	"undock",              // 7
 	"quitapp",             // 8
@@ -133,7 +133,7 @@ static const char * g_szIconNames[KviIconManager::IconCount] =
 	"query",               // 48
 	"queryprivmsg",        // 49
 	"help",                // 49
-	"mdihelp",             // 50
+	"questionmark",        // 50
 	"ctcpreply",           // 51
 	"ctcprequestreplied",  // 52
 	"ctcprequestignored",  // 53
@@ -228,9 +228,9 @@ static const char * g_szIconNames[KviIconManager::IconCount] =
 	"gnutella",            // 142
 	"search",              // 143
 	"files",               // 144
-	"transfer",            // 145
+	"transfer",            // 145 //cant see this used anywhere
 	"package",             // 146
-	"retry",               // 147
+	"retry",               // 147 //cant see this used anywhere
 	"idea",                // 148
 	"colors",              // 149
 	"gui",                 // 150
@@ -240,7 +240,7 @@ static const char * g_szIconNames[KviIconManager::IconCount] =
 	"channelnoticecrypted",// 154
 	"querynotice",         // 155
 	"querynoticecrypted",  // 156
-	"servnotice",          // 157
+	"servnotice",          // 157 //cant see this used anywhere
 	"popup",               // 158
 	"prologue",            // 159
 	"epilogue",            // 160
@@ -334,7 +334,7 @@ static const char * g_szIconNames[KviIconManager::IconCount] =
 	"meuserop",            // 248
 	"medeuserop",          // 249
 	"applet",              // 250
-	"caption",             // 251
+	"spam",                // 251
 	"transparent",         // 252
 	"notifier",            // 253
 	"userwindow",          // 254
@@ -352,7 +352,7 @@ static const char * g_szIconNames[KviIconManager::IconCount] =
 	"sysmonitor",          // 266
 	"saycolors",           // 267
 	"finger",              // 268
-	"scriptaction",        // 269
+	"highlighttext",       // 269
 	"tearsmile",           // 270
 	"shy",                 // 271
 	"servererror",         // 272
@@ -665,7 +665,7 @@ KviIconManager::SmallIcon KviIconManager::iconName(int iIcon)
 		case  47: return KviIconManager::Query;                break;
 		case  48: return KviIconManager::QueryPrivMsg;         break;
 		case  49: return KviIconManager::Help;                 break;
-		case  50: return KviIconManager::MdiHelp;              break;
+		case  50: return KviIconManager::QuestionMark;         break;
 		case  51: return KviIconManager::CtcpReply;            break;
 		case  52: return KviIconManager::CtcpRequestReplied;   break;
 		case  53: return KviIconManager::CtcpRequestIgnored;   break;
@@ -760,9 +760,9 @@ KviIconManager::SmallIcon KviIconManager::iconName(int iIcon)
 		case 142: return KviIconManager::Gnutella;             break;
 		case 143: return KviIconManager::Search;               break;
 		case 144: return KviIconManager::Files;                break;
-		case 145: return KviIconManager::Transfer;             break;
+		case 145: return KviIconManager::Transfer;             break; //cant see this used anywhere
 		case 146: return KviIconManager::Package;              break;
-		case 147: return KviIconManager::Retry;                break;
+		case 147: return KviIconManager::Retry;                break; //cant see this used anywhere
 		case 148: return KviIconManager::Idea;                 break;
 		case 149: return KviIconManager::Colors;               break;
 		case 150: return KviIconManager::Gui;                  break;
@@ -772,7 +772,7 @@ KviIconManager::SmallIcon KviIconManager::iconName(int iIcon)
 		case 154: return KviIconManager::ChannelNoticeCrypted; break;
 		case 155: return KviIconManager::QueryNotice;          break;
 		case 156: return KviIconManager::QueryNoticeCrypted;   break;
-		case 157: return KviIconManager::ServNotice;           break;
+		case 157: return KviIconManager::ServNotice;           break; //cant see this used anywhere
 		case 158: return KviIconManager::Popup;                break;
 		case 159: return KviIconManager::Prologue;             break;
 		case 160: return KviIconManager::Epilogue;             break;
@@ -866,7 +866,7 @@ KviIconManager::SmallIcon KviIconManager::iconName(int iIcon)
 		case 248: return KviIconManager::MeUserOp;             break;
 		case 249: return KviIconManager::MeDeUserOp;           break;
 		case 250: return KviIconManager::Applet;               break;
-		case 251: return KviIconManager::Caption;              break;
+		case 251: return KviIconManager::Spam;                 break;
 		case 252: return KviIconManager::Transparent;          break;
 		case 253: return KviIconManager::Notifier;             break;
 		case 254: return KviIconManager::UserWindow;           break;
@@ -884,7 +884,7 @@ KviIconManager::SmallIcon KviIconManager::iconName(int iIcon)
 		case 266: return KviIconManager::SysMonitor;           break;
 		case 267: return KviIconManager::SayColors;            break;
 		case 268: return KviIconManager::Finger;               break;
-		case 269: return KviIconManager::ScriptAction;         break;
+		case 269: return KviIconManager::HighlightText;        break;
 		case 270: return KviIconManager::TearSmile;            break;
 		case 271: return KviIconManager::Shy;                  break;
 		case 272: return KviIconManager::ServerError;          break;
