@@ -1,84 +1,58 @@
-1. PROJECT RELATED QUESTIONS
+<!-- START TOC -->
+**Table of Contents**  
+- [1. PROJECT RELATED QUESTIONS](#1-project-related-questions)
+	- [1.1 What is KVIrc? What does the "KVIrc" name stand for?]()
+	- [1.2 Why is KVIrc not totally integrated in KDE?](#)
+- [2. COMPILATION](#)
+	- [2.1 I can't compile KVIrc from Git, what's wrong?](#)
+	- [2.2 Internal Compiler Errors?](#)
+- [3. INSTALLATION](#)
+	- [3.1 There is a problem during package installation/creation](#)
+- [4. IRC](#)
+	- [4.1 How do I join a channel?](#)
+	- [4.2 How do I autojoin channels?](#)
+	- [4.3 How do I enable automatic NickServ identification?](#)
+	- [4.4 I can't see my national characters, what's wrong?](#)
+- [4.5 I can't connect to an IPv6 server, what's wrong?](#)
+	- [4.6 /me doesn't support the '$' character, what's wrong?](#)
+	- [4.7 /me doesn't support the '"' (double quote) character, what's wrong?](#)
+	- [4.8 /me can't contain the ';' character, what's wrong?](#)
+	- [4.9 I try to do a /whois on nick blah\ but I get the reply for blah (without the slash)](#)
+	- [4.10 What is AVATAR protocol? Is there any documentation about it?](#)
+	- [4.11 The log files seem to be saved randomly, when I open a log](#)
+	- [4.12 The DCC transfers seem to be interrupted after the first few bytes:](#)
+- [5. ADVANCED IRC FEATURES](#)
+	- [5.1 How do I connect to an SSL-enabled IRC server?](#)
+	- [5.1 How do I use DCC over SSL?](#)
+	- [5.3 Do I need a SSL certificate?](#)
+	- [5.4 How do I create a SSL certificate?](#)
+	- [5.5 I can't get KVIrc to use my SSL certificate in a DCC, what's wrong?](#)
+	- [5.6 KVIrc crashes when a certificate is used under Windows, what's wrong?](#)
+	- [5.7 Can I encrypt my messages?](#)
+	- [5.8 How do I execute a process and send its output to a channel?](#)
+	- [5.9 How do I keep channels and queries open after a disconnect?](#)
+	- [5.10 I have an unreliable ISP connection but KVIrc takes a really long](#)
+	- [5.11 I'm in a LAN and KVIrc uses a wrong IP address in dcc transfers](#)
+- [6. APPEARANCE](#)
+	- [6.1 On Windows KVIrc seems to slow-down sometimes, what's wrong?](#)
+	- [6.2 I don't see the channel popup menus anymore, what's wrong?](#)
+	- [6.3 Does KVIrc support Themes?](#)
+	- [6.4  I hate all that colors, what can I do about it?](#)
+	- [6.5 On Windows, how do I use firefox/opera/any_other_browser to open links instead of explorer?](#)
+- [7. CRASH](#)
+	- [7.1 What the heck is a gdb stack trace and how do I get it?](#)
+	- [7.2 KVIrc hangs up, but doesn't crash. How do I report debug information?](#)
+	- [7.3 KVIrc exits by itself or simply "disappears" without any apparent reason.](#)
+	- [7.4 KVIrc dies when using alias(identify){ identify password; };](#)
+- [8. SCRIPTING / ADDONS](#)
+	- [8.1 Trying to load a script I get a "can't load the module 'script'" error.](#)
 
-1.1 What is KVIrc? What does the KVIrc name stand for?
-1.2 Why is KVIrc not fully integrated in KDE?
+<!-- END TOC -->
 
-
-2. COMPILATION
-
-2.1 I can't compile KVIrc from Git, what's wrong?
-2.2 Internal Compiler Errors?
-
-
-3. INSTALLATION
-
-3.1 There is a problem during package installation/creation
-     file /usr/share/services/irc.protocol from install
-     kvirc-version.package conflicts with file from package xxx
-
-
-4. IRC
-
-4.1 How do I join a channel?
-4.2 How do I autojoin channels?
-4.3 How do I enable automatic NickServ identification?
-4.4 I can't see my national characters, what's wrong?
-4.5 I can't connect to an IPV6 server, what's wrong?
-4.6 /me doesn't support the '$' character, what's wrong?
-4.7 /me doesn't support the '"' (double quote) character, what's wrong?
-4.8 /me can't contain the ';' character, what's wrong?
-4.9 I try to do a /whois on nick blah\ but I get the reply for blah (without the slash)
-4.10 What is AVATAR protocol? Is there any documentation about it?
-4.11 The log files seem to be saved randomly, when I open a log
-     I can see only a part of the text that actually should be there
-4.12 The DCC transfers seem to be interrupted after the first few bytes:
-     KVIrc says that the remote end has closed the connection.
-
-
-5. ADVANCED IRC FEATURES
-
-5.1 How do I connect to an SSL-enabled IRC server?
-5.2 How do I use DCC over SSL?
-5.3 Do I need a SSL certificate?
-5.4 How do I create a SSL certificate?
-5.5 I can't get KVIrc to use my SSL certificate in a DCC, what's wrong?
-5.6 KVIrc crashes when a certificate is used under Windows, what's wrong?
-5.7 How do I enable Mircryption (encryption in general) for a specific channel?
-5.8 How do I execute a process and send its output to a channel?
-5.9 How do I keep channels and queries open after a disconnect?
-5.10 I have an unreliable ISP connection but KVIrc takes a really long
-    time to detect a disconnection and reconnect.
-5.11 I'm in a LAN and KVIrc uses a wrong IP address in DCC transfers
-
-
-6. APPEARANCE
-
-6.1 On Windows KVIrc seems to slow-down sometimes, what's wrong?
-6.2 I don't see the channel popup menus anymore, what's wrong?
-6.3 Does KVIrc support Themes?
-6.4 I hate all that colors, what can I do about it?
-6.5 On Windows, how do I use Firefox, Opera or any other browser to open links instead of explorer?
+## 1. PROJECT RELATED QUESTIONS
 
 
-7. CRASHES
-
-7.1 What the heck is a GDB stack trace and how do I get it?
-7.2 KVIrc hangs up, but doesn't crash. How do I report debug information?
-7.3 KVIrc exits by itself or simply disappears without any apparent reason.
-7.4 KVIrc dies when using alias(identify){ identify password; }
-
-
-8. SCRIPTING / ADDONS
-
-8.1 Trying to load a script I get a "can't load the module 'script'" error.
-
-
---------------------------------------------------------------------------------
-1. PROJECT RELATED QUESTIONS
---------------------------------------------------------------------------------
-
-
-1.1 What is KVIrc? What does the KVIrc name stand for?
+### 1.1 What is KVIrc? What does the "KVIrc" name stand for?
 
    KVIrc is a cross-platform Internet Relay Chat client.
    The name stands for K Visual Internet Relay Chat client.
@@ -88,7 +62,7 @@
    Qt Company and runs also on platforms where KDE can't run.
 
 
-1.2 Why is KVIrc not totally integrated in KDE?
+### 1.2 Why is KVIrc not totally integrated in KDE?
 
    First of all read the answer for question 1.1.
    We could provide a more complete integration by the means of conditional
@@ -99,11 +73,10 @@
    as you promise to maintain them :)
 
 
---------------------------------------------------------------------------------
-2. COMPILATION
---------------------------------------------------------------------------------
 
-2.1 I can't compile KVIrc from Git, what's wrong?
+## 2. COMPILATION
+
+### 2.1 I can't compile KVIrc from Git, what's wrong?
 
    Have you checked the requirements?
    *Carefully* read the INSTALL file that comes with the distribution:
@@ -113,10 +86,9 @@
    If you still can't get it to work, please either subscribe to the KVIrc
    mailing list (see www.kvirc.net) and report the problem there. Alternatively
    open a issue at https://github.com/kvirc/KVIrc/issues or join #kvirc
-   on Freenode and ask the channel members for a hint.
+   on freenode and ask the channel members for a hint.
 
-
-2.2 Internal Compiler Errors?
+### 2.2 Internal Compiler Errors?
 
    Compile errors like this:
        In file [somefile]:[someline] internal error:
@@ -139,11 +111,12 @@
       it *might* be a deeper hardware problem: bus errors, faulty IDE (or SCSI) controller or even buggy CPU...
       Well....
 
--------------------------------------------------------------------------------
-3. INSTALLATION
--------------------------------------------------------------------------------
 
-3.1 There is a problem during package installation/creation
+      
+## 3. INSTALLATION
+
+
+### 3.1 There is a problem during package installation/creation
      file /usr/share/services/irc.protocol from install
      kvirc-version.package conflicts with file from package xxx
 
@@ -157,16 +130,13 @@
   users must use some sort of force flag during the installation.
 
 
--------------------------------------------------------------------------------
-4. IRC
--------------------------------------------------------------------------------
+## 4. IRC
 
-4.1 How do I join a channel?
+### 4.1 How do I join a channel?
 
   Type "/join #channelname"
 
-
-4.2 How do I autojoin channels?
+### 4.2 How do I autojoin channels?
 
   There are many ways to do it.
   For example:
@@ -184,8 +154,8 @@
   page and click the button labeled 'Advanced' on the entry for the single server.
   There is a server-specific "On connect execute..." event.
 
+### 4.3 How do I enable automatic NickServ identification?
 
-4.3 How do I enable automatic NickServ identification?
 
   KVIrc supports two kind of NickServ identification rules: per-network and global.
   The per-network rules can be accessed from the server options page.
@@ -212,8 +182,7 @@
   KVIrc first looks in the per-network rules and if none matches it looks
   in the global rules.
 
-
-4.4 I can't see my national characters, what's wrong?
+### 4.4 I can't see my national characters, what's wrong?
 
   There are several ways to fix your national characters display.
   General encoding:
@@ -248,7 +217,7 @@
       that have settings different than your general defaults or
       the server default.
 
-  Keep in mind that IRC has a MAJOR problem with character encoding
+  Keep in mind that IRC has a **major** problem with character encoding
   and in fact the formal definition of the protocol requires it
   to be only 7bit safe. This means that on some servers you may
   see your national characters eaten by the IRC network and there
@@ -258,10 +227,11 @@
   other people to use it :)
 
 
-4.5 I can't connect to an IPV6 server, what's wrong?
+## 4.5 I can't connect to an IPv6 server, what's wrong?
 
-  First of all make sure that your IPV6 stack is setup correctly.
-  Can you ping6 other IPV6 other machines?
+  First of all make sure that your IPv6 stack is setup correctly.
+  Can you ping6 other IPv6 other machines?
+
 
         # ping -6 ipv6.google.com
 
@@ -280,7 +250,7 @@
   you may have found a bug :) Report it.
 
 
-4.6 /me doesn't support the '$' character, what's wrong?
+### 4.6 /me doesn't support the '$' character, what's wrong?
 
   This is NOT a bug : this is a feature : KVIrc supports (and substitutes!) variables in all the commands.
   You can escape your $ sign by using the backslash character:
@@ -291,7 +261,7 @@
   arrow next to the input field and then click the KVS icon.
 
 
-4.7 /me doesn't support the '"' (double quote) character, what's wrong?
+### 4.7 /me doesn't support the '"' (double quote) character, what's wrong?
 
   This is NOT a bug : this is a feature : a string enclosed in double quotes will have its whitespace preserved
   while the other strings will have the whitespace simplified. This is valid for ANY command.
@@ -303,7 +273,7 @@
   arrow next to the input field and then click the KVS icon.
 
 
-4.8 /me can't contain the ';' character, what's wrong?
+### 4.8 /me can't contain the ';' character, what's wrong?
 
   This is NOT a bug : this is a feature : KVIrc supports multiple commands on a single line and uses ';' as a command
   separator. You can escape your ';' sign by using the backslash character:
@@ -314,7 +284,7 @@
   arrow next to the input field and then click the KVS icon.
 
 
-4.9 I try to do a /whois on nick blah\ but I get the reply for blah (without the slash)
+### 4.9 I try to do a /whois on nick blah\ but I get the reply for blah (without the slash)
 
   In KVIrc /whois is a scripting command and the nickname is a command parameter.
   In scripting commands the backslash is a special character with several "escape"
@@ -324,8 +294,7 @@
   Otherwise, you can use friendly command line mode, where special symbols are not interpreted. Just click the green
   arrow next to the input field and then click the KVS icon.
 
-
-4.10 What is AVATAR protocol? Is there any documentation about it?
+### 4.10 What is AVATAR protocol? Is there any documentation about it?
 
   AVATAR is a simple CTCP based protocol that allows associating images (avatars)
   to IRC users. The protocol definition is simple:
@@ -346,7 +315,7 @@
   about this method please write to pragma at KVIrc dot net.
 
 
-4.11 The log files seem to be saved randomly, when I open a log
+### 4.11 The log files seem to be saved randomly, when I open a log
      I can see only a part of the text that actually should be there
 
    KVIrc does not explicitly flush the log files while writing them. The OS
@@ -372,7 +341,7 @@
    remove the echo statement if you're annoyed by the output :)
 
 
-4.12 The DCC transfers seem to be interrupted after the first few bytes:
+### 4.12 The DCC transfers seem to be interrupted after the first few bytes:
      KVIrc says that the remote end has closed the connection.
 
    Make sure that you don't have activated the "Send ACK for byte 0"
@@ -380,12 +349,10 @@
    This option should be used ONLY IF you have problems without.
 
 
--------------------------------------------------------------------------------
-5. ADVANCED IRC FEATURES
--------------------------------------------------------------------------------
 
+## 5. ADVANCED IRC FEATURES
 
-5.1 How do I connect to an SSL-enabled IRC server?
+### 5.1 How do I connect to an SSL-enabled IRC server?
 
   Use /server -s <servername>
   It should work also over IPV6.
@@ -398,23 +365,23 @@
   to the compilation phase and see what went wrong.
 
 
-5.1 How do I use DCC over SSL?
+### 5.1 How do I use DCC over SSL?
 
   /dcc.chat -s <nickname> should work
 
 
-5.3 Do I need a SSL certificate?
+### 5.3 Do I need a SSL certificate?
 
   No you shouldn't need it, but you can use it if you want.
 
 
-5.4 How do I create a SSL certificate?
+### 5.4 How do I create a SSL certificate?
 
   A test self-signed certificate can be created by using the CA.pl perl script included
   in the OpenSSL distribution. It will be something like CA.pl -newcert
 
 
-5.5 I can't get KVIrc to use my SSL certificate in a DCC, what's wrong?
+### 5.5 I can't get KVIrc to use my SSL certificate in a DCC, what's wrong?
 
   The SSL protocol doesn't require the "client" to send the certificate: it is
   sent only if the "server side" requests it (it is not the KVIrc case).
@@ -424,21 +391,21 @@
   Remember to set the password if needed.
 
 
-5.6 KVIrc crashes when a certificate is used under Windows, what's wrong?
+### 5.6 KVIrc crashes when a certificate is used under Windows, what's wrong?
 
   This is probably a bug of the SSL dll shipped with the windows version of KVIrc.
   You might try with a different version of this dll.
 
 
-5.7 Can I encrypt my messages?
-(or: How do I enable mircryption (encryption in general) for a specific channel?)
+### 5.7 Can I encrypt my messages?
+(or: How do I enable Mircryption (encryption in general) for a specific channel?)
 
   KVIrc supports encryption for channels, queries and DCC chats by the means
   of text transformation engines. You can access the list of the engines
   by clicking the button with the yellow lock in the upper right corner
   of the window. In the pane that will appear select "use text transformation"
   and then choose one of the available engines.
-  The Mircryption engine is an implementation of the mircryption protocol and
+  The Mircryption engine is an implementation of the Mircryption protocol and
   supports both ECB and CBC mode. There is also a wide variety of Rijndael based encryption
   engines as well as some funky other text transform tricks.
   Most of the engines will need a pair of keys to encrypt and decrypt text
@@ -452,7 +419,7 @@
   the line with a CTRL+P character.
 
 
-5.8 How do I execute a process and send its output to a channel?
+### 5.8 How do I execute a process and send its output to a channel?
 
   The straight way to do this is
 
@@ -474,7 +441,7 @@
   find more elaborate and nice ways to send a process output to a channel/query.
 
 
-5.9 How do I keep channels and queries open after a disconnect?
+### 5.9 How do I keep channels and queries open after a disconnect?
 
   KVIrc can keep your channels and queries open when the connection terminates
   unexpectedly. This will probably make sense only if you plan to
@@ -504,7 +471,7 @@
   because you need to renew the connection to your ISP before reconnecting ;)
 
 
-5.10 I have an unreliable ISP connection but KVIrc takes a really long
+### 5.10 I have an unreliable ISP connection but KVIrc takes a really long
     time to detect a disconnection and reconnect.
 
   KVIrc doesn't detect itself that the connection has dropped until your
@@ -526,7 +493,7 @@
   in the options dialog, KVIrc will automatically reconnect and rejoin channels.
 
 
-5.11 I'm in a LAN and KVIrc uses a wrong IP address in DCC transfers
+### 5.11 I'm in a LAN and KVIrc uses a wrong IP address in dcc transfers
 
   KVIrc supports a couple of methods for guessing the right IP address for
   DCC transfers: you only have to guide it a bit :)
@@ -559,18 +526,17 @@
   DCC RSEND protocol instead of DCC SEND. It will ask the remote end
   to listen instead.
 
--------------------------------------------------------------------------------
-6. APPEARANCE
--------------------------------------------------------------------------------
 
-6.1 On Windows KVIrc seems to slow-down sometimes, what's wrong?
+## 6. APPEARANCE
+
+### 6.1 On Windows KVIrc seems to slow-down sometimes, what's wrong?
 
   This is usually caused by the heavy graphics: try removing some graphic effects like the
   pseudo-transparency. I have experimented that it happens almost always on 32-bit displays.
   Switching to 16 or 24-bit may also help.
 
 
-6.2 I don't see the channel popup menus anymore, what's wrong?
+### 6.2 I don't see the channel popup menus anymore, what's wrong?
 
   If something went wrong with KVIrc settings (a crash when the script settings
   were saved?) or if you have messed with the scripting options and you
@@ -580,7 +546,7 @@
   KVIrc should be able to detect such situations and automatically suggest the
   re-installation of the default script.
 
-6.3 Does KVIrc support Themes?
+### 6.3 Does KVIrc support Themes?
 
   Yes, KVIrc has introduced a Theme Manager. You can find it in the Option dialog.
   From there you can change the way KVIrc looks: fonts, colors, windows behaviour,
@@ -589,7 +555,7 @@
   or send it to the KVIrc staff to see it published on the web site.
 
 
-6.4  I hate all that colors, what can I do about it?
+### 6.4  I hate all that colors, what can I do about it?
 
   By fiddling with the options you can make KVIrc appear even monochromatic.
   Go to Options/Theme and select the minimalist theme: it will set white text
@@ -597,7 +563,7 @@
   This is a good starting point for you console addicted hackerz :D
 
 
-6.5 On Windows, how do I use Firefox, Opera or any other browser to open links instead of explorer?
+### 6.5 On Windows, how do I use firefox/opera/any_other_browser to open links instead of explorer?
 
   Currently any browsers defined as the default browser, will be used automatically. 
   Use the instructions below only to set your preferred browser.
@@ -618,11 +584,10 @@
   as URL handler to open the URL in the default windows browser.
 
 
--------------------------------------------------------------------------------
-7. CRASH
--------------------------------------------------------------------------------
 
-7.1 What the heck is a GDB stack trace and how do I get it?
+## 7. CRASH
+
+### 7.1 What the heck is a gdb stack trace and how do I get it?
 
   A GDB stack trace is a "photograph" of the state of the KVIrc internals
   taken when a certain event has occurred. The most common event
@@ -648,32 +613,31 @@
     https://github.com/kvirc/KVIrc/issues/new
 
 
-7.2 KVIrc hangs up, but doesn't crash. How do I report debug information?
+### 7.2 KVIrc hangs up, but doesn't crash. How do I report debug information?
 
   Use GDB to get a stack trace as in answer to question 7.1.
   Since your KVIrc doesn't crash you will have to interrupt the execution
   manually while it is hung up. You can do it by pressing CTRL+C in GDB.
 
 
-7.3 KVIrc exits by itself or simply "disappears" without any apparent reason.
+### 7.3 KVIrc exits by itself or simply "disappears" without any apparent reason.
 
   Yes. It probably crashed but you haven't noticed that.
   We NEED a GDB stack trace or a working procedure to reproduce the
   behaviour in order to hunt it.
 
 
-7.4 KVIrc dies when using alias(identify){ identify password; };
+### 7.4 KVIrc dies when using alias(identify){ identify password; };
 
   This is infinite recursion: a programming error.
   Take a look at http://en.wikipedia.org/wiki/Infinite_loop, learn
   that once for all and fix your script.
 
 
--------------------------------------------------------------------------------
-8. SCRIPTING / ADDONS
--------------------------------------------------------------------------------
+## 8. SCRIPTING / ADDONS
 
-8.1 Trying to load a script I get a "can't load the module 'script'" error.
+### 8.1 Trying to load a script I get a "can't load the module 'script'" error.
+
   Full version of the error (this is for Linux, may vary on Windows/other OS):
   ---
   [KVS] Runtime Error: Module command call failed: can't load the module 'script':
