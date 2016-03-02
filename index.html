@@ -1,99 +1,518 @@
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Union &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FREEHTML5.CO" />
 
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="images/Kvirclogo.png">
 
-    <title>By: the KVIrc development team</title>
-  </head>
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css">
+	<!-- Font Awesome Icon Fonts-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<!-- Simple Line Icons -->
+	<link rel="stylesheet" href="css/simple-line-icons.css">
+	<!-- Bootstrap 3.3.6 Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Style -->
+	<link rel="stylesheet" href="css/style.css">
 
-  <body>
+	<!-- jQuery -->
+	<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<!-- jQuery Easing 1.3 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<!-- Bootstrap 3.3.6 Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<!-- Modernizr JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+	<!-- Waypoints -->
+   	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>
+	<!-- Owl Carousel -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
+	<!-- Stellar -->
+	<script src="https://cdn.jsdelivr.net/jquery.stellar/0.6.2/jquery.stellar.min.js"></script>
 
-    <header>
-      <div class="container">
-        <h1>KVIrc</h1>
-        <h2>Don't make me think!</h2>
+	<!-- Main JS (Do not remove) -->
+	<script src="js/main.js"></script>
 
-        <section id="downloads">
-          <a href="https://github.com/kvirc/KVIrc/wiki/Downloading-KVIrc's-nightly-source-or-binaries" class="btn">Download KVIrc</a>
-          <a href="https://github.com/kvirc/KVIrc/tarball/master" class="btn">Grab Source as .tar.gz</a>
-          <a href="https://github.com/kvirc/KVIrc" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
+	<!-- Detect Users OS -->
+	<script src="js/OSdetect.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
 
-    <div class="container">
-      <section id="main_content">
-        <p><a href="https://travis-ci.org/kvirc/KVIrc"><img src="https://img.shields.io/travis/kvirc/KVIrc/master.svg?label=linux%2Fosx" alt="Travis Build Status"></a>
-<a href="https://ci.appveyor.com/project/DarthGandalf/kvirc/branch/master"><img src="https://img.shields.io/appveyor/ci/DarthGandalf/KVIrc/master.svg?label=windows" alt="AppVeyor Build status"></a>
-<a href="https://scan.coverity.com/projects/kvirc-coverity"><img src="https://img.shields.io/coverity/scan/6841.svg" alt="Coverity Scan Build Status"></a></p>
+</head>
 
-<p><img src="https://raw.githubusercontent.com/kvirc/KVIrc/master/data/icons/128x128/kvirc.png" alt="KVIrc logo" title="KVIrc - The visual IRC client for the masses!"></p>
+<body onload="detect();">
+	<header role="banner" id="fh5co-header">
+		<div class="fluid-container">
+			<!-- NavBar Secton-->
+			<nav class="navbar navbar-default">
+				<div class="navbar-header">
+					<!-- Mobile Toggle Menu Button -->
+					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+					<a class="navbar-brand" href="index.html"><span>KV</span>Irc</a> 
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="#" data-nav-section="home"><span>Home</span></a></li>
+						<li><a href="#" data-nav-section="explore"><span>Explore</span></a></li>
+						<li><a href="#" data-nav-section="testimony"><span>Testimony</span></a></li>
+						<li><a href="#" data-nav-section="features"><span>Features</span></a></li>
+						<li><a href="#" data-nav-section="team"><span>Team</span></a></li>
+						<li><a href="#" data-nav-section="faq"><span>FAQ</span></a></li>
+						<li class="call-to-action"><a href="#"><span>Download</span></a></li>
+					</ul>
+				</div>
+			</nav>
+	  </div>
+	</header>
 
-<h2>
-<a id="about" class="anchor" href="#about" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About</h4>
+	<!-- Home Secton -->
+	<section id="fh5co-home" data-section="home" style="background-image: url(images/full_image_3.jpg);" data-stellar-background-ratio="0.5">
+		<div class="gradient"></div>
+		<div class="container">
+			<div class="text-wrap">
+				<div class="text-inner">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<h1 class="to-animate">KVIrc The IRC client cool people use</h1>
+							<h2 class="to-animate">100% Free to use. Licensed under <a href="https://github.com/kvirc/KVIrc/blob/master/doc/LICENSE-GPLV2" target="_blank">GPLv2</a>, <a href="https://github.com/kvirc/KVIrc/blob/master/doc/LICENSE-GPLV3"  target="_blank"> GPLv3</a> & <a href="https://github.com/kvirc/KVIrc/blob/master/doc/LICENSE-OPENSSL"  target="_blank"> OpenSSL.</a> <br> Crafted with <i class="fa fa-heart" style="color: pink;"></i> by <a href="http://rcmainak.github.io" target="_blank" class="fh5co-link">Mainak Roy Chowdhury</a></h2>
+							<div class="call-to-action">
+								<a href="#" class="demo to-animate">View Demo</a>
+								<a href="#" class="download to-animate" id="downloadbtn"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<p>KVIrc is a free portable IRC client, leveraging the Qt GUI toolkit.
-KVirc is written by Szymon Stefanek and the KVIrc development team, with the contribution of many IRC addicted developers around the world.</p>
+	<!-- Explore Section -->
+	<section id="fh5co-explore" data-section="explore">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 section-heading text-center">
+					<h2 class="to-animate">Explore <font color="#ff3b30">KVI</font>rc</h2>
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 subtext to-animate">
+							<h3>KVIrc is a IRC client first lauched in 2005. Get to know both the Aweosome Client & the Community of people behind it.</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-<p>This is the GitHub development and bug tracker home for the KVIrc project.</p>
+		<div class="fh5co-explore fh5co-explore-bg-color">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-pull-1 to-animate-3">
+						<img class="img-responsive" src="images/work_1.png" alt="work">
+					</div>
+					<div class="col-md-4 to-animate-3">
+						<div class="mt">
+							<div>
+								<h4><i class="fa fa-users"></i>Real Project For Real Developers</h4>
+								<p>First thing you need to know about this client is that there is a great community of developers behind this project. Who are pationate about new skills & the project. </p>
+							</div>
+							<div>
+								<h4><i class="fa fa-comments-o"></i>A Client IRC Deserves</h4>
+								<p>IRC was the real time communicate medium. In the age of Social media and internet based messageing apps IRC is losing it's foot for lack of good clients. We're here to solve that. </p>
+							</div>
+							<div>
+								<h4><i class="fa fa-shield"></i>Free as in Free Speach as well as Free Beer</h4>
+								<p>Well, KVIrc is free of any kind of cost as well as you're free to choose what you want the client to store about you. You're in chage of your information with this client. </p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<h2>
-<a id="getting-involved" class="anchor" href="#getting-involved" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting involved</h4>
+	<!-- Testimony Section -->
+	<section id="fh5co-testimony" data-section="testimony">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 to-animate">
+					<div class="wrap-testimony">
+						<div class="owl-carousel-fullwidth">
+							<div class="item">
+								<div class="testimony-slide active text-center">
+									<figure>
+										<img src="https://avatars3.githubusercontent.com/u/3521959?v=3&s=400" alt="user">
+									</figure>
+									<blockquote>
+										<p>"Tweet form users will show up here along with a link to the original tweet"</p>
+									</blockquote>
+									<span>tweeter's name, via <a href="#" class="twitter">Twitter</a></span>
+								</div>
+							</div>
+							<div class="item">
+								<div class="testimony-slide active text-center">
+									<figure>
+										<img src="https://avatars3.githubusercontent.com/u/3521959?v=3&s=400" alt="user">
+									</figure>
+									<blockquote>
+										<p>"Tweet form users will show up here along with a link to the original tweet"</p>
+									</blockquote>
+									<span>tweeter's name, via <a href="#" class="twitter">Twitter</a></span>
+								</div>
+							</div>
+							<div class="item">
+								<div class="testimony-slide active text-center">
+									<figure>
+										<img src="https://avatars3.githubusercontent.com/u/3521959?v=3&s=400" alt="user">
+									</figure>
+									<blockquote>
+										<p>"Tweet form users will show up here along with a link to the original tweet"</p>
+									</blockquote>
+									<span>tweeter's name, via <a href="#" class="twitter">Twitter</a></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<ul>
-<li><a href="https://github.com/kvirc/KVIrc/wiki/Getting-involved-and-contributing">Contributing</a></li>
-</ul>
+	<!-- Advertisment of Download button -->
+	<div class="getting-started getting-started-1">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 to-animate">
+					<h3>Getting Started</h3>
+					<p>The IRC client cool people use. It's free & always will be. A Client which respects your privacy. </p>
+				</div>
+				<div class="col-md-6 to-animate-2">
+					<div class="call-to-action text-right">
+						<a href="#" class="sign-up" id="downloadbtn1">Download</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h2>
-<a id="help--support" class="anchor" href="#help--support" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Help &amp; Support</h4>
+	<!-- Features Section -->
+	<section id="fh5co-services" data-section="features">
+		<div class="fh5co-services">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 section-heading text-center">
+						<h2 class="to-animate">Features We Offers</h2>
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2 subtext">
+								<h3 class="to-animate">Features that makes us special and different others are as follows. </h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="box-services">
+							<i class="fa fa-thumbs-o-up to-animate-2"></i>
+							<div class="fh5co-post to-animate">
+								<h3>Hand-crafted with Details</h3>
+								<p>Full GUI Based configuration, Floatable windows, Built-in help browser, Themes support, Drag & Drop toolbar editing, Activity Notifier Pop-Up and Custom Activity Notifier Sounds.</p>
+							</div>
+						</div>
 
-<ul>
-<li><a href="https://github.com/kvirc/KVIrc/wiki/home">KVIrc - Wiki - Homepage</a></li>
-<li><a href="http://www.kvirc.net/doc">KVIrc manual</a></li>
-<li><a href="http://www.kvirc.net/api">KVIrc API</a></li>
-<li><a href="https://github.com/kvirc/KVIrc/wiki/Submitting-a-bug-report">How to submit a bug report</a></li>
-<li><a href="https://github.com/kvirc/KVIrc/issues">Open a bug report or make a suggestion</a></li>
-<li>Talk to us <a href="https://webchat.freenode.net?nick=kvirc-user&amp;channels=%23kvirc&amp;prompt=1&amp;uio=OT10cnVlde">Join #KVIrc</a> on freenode.net</li>
-<li><a href="http://www.kvirc.ru/forum/">KVIrc - Community forums</a></li>
-</ul>
+						<div class="box-services">
+							<i class="fa fa-fighter-jet to-animate-2"></i>
+							<div class="fh5co-post to-animate">
+								<h3>Light and Fast</h3>
+								<p>Modular architecture: unfrequently used features reside in external modules and are loaded only when necessary, Extensibility: a huge API for writing extension modules and UNICODE support.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="box-services">
+							<i class="fa fa-trophy to-animate-2"></i>
+							<div class="fh5co-post to-animate">
+								<h3>Netwrk Support & Security</h3>
+								<p>Proxy support (SOCKSv4, SOCKSv5, HTTP), Full IPv6 support (also for DCC transfers), SSL support (also over IPv6), Micryption support.</p>
+							</div>
+						</div>
 
-<hr>
+						<div class="box-services">
+							<i class="fa fa-paper-plane-o to-animate-2"></i>
+							<div class="fh5co-post to-animate">
+								<h3>Sleek and Smooth IRC Features</h3>
+								<p>Multi-server connection, Notify lists, Ignore lists, Registered users database, Lag meter, Configurable logging, Standard DCC CHAT and SEND (with resume) support, Extended DCC types: VOICE, RSEND, GET, RECV, DCC CHAT over SSL, DCC bandwidth limit (ability to set it "on the fly").</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="box-services">
+							<i class="fa fa-users to-animate-2"></i>
+							<div class="fh5co-post to-animate">
+								<h3>Satisfied &amp; Happy Users</h3>
+								<p>Built-in scripting language interpreter, scalars, arrays and hashes..., aliases, popups, events, scriptable toolbars, Perl support and Multiple Language support.</p>
+							</div>
+						</div>
 
-<p>Try one of our fresh off-the-press nightly development 32-bit or 64-bit builds for Windows, Ubuntu and Debian.</p>
+						<div class="box-services">
+							<i class="fa fa-desktop to-animate-2"></i>
+							<div class="fh5co-post to-animate">
+								<h3>Looks Amazing on Devices</h3>
+								<p>Supports Linux, Mac OS and Wiindows. Now you can use your favourite IRC client on multiple plateforms. KVIrc also supports avatar for users and http/https connections.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<h2>
-<a id="downloads" class="anchor" href="#downloads" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/kvirc/KVIrc/wiki/Downloading-KVIrc's-nightly-source-or-binaries">Downloads</a>
-</h2>
+	<!-- Team Section -->
+	<section id="fh5co-team" data-section="team">
+		<div class="fh5co-team">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 section-heading text-center">
+						<h2 class="to-animate">Meet The Team</h2>
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2 subtext">
+								<h3 class="to-animate">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove. </h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="team-box text-center to-animate-2">
+							<div class="user"><a href="https://github.com/ctrlaltca" class="fa fa-github" target="_blank"><img class="img-reponsive" src="https://avatars1.githubusercontent.com/u/1631111?v=3&s=400" alt="ctrlaltca"></a></div>
+							<h3>ctrlaltca</h3>
+							<span class="position">Software Developer</span>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="team-box text-center to-animate-2">
+							<div class="user"><a href="https://github.com/DarthGandalf" class="fa fa-github" target="_blank"><img class="img-reponsive" src="https://avatars0.githubusercontent.com/u/325092?v=3&s=400" alt="Alexey Sokolov"></a></div>
+							<h3>Alexey Sokolov</h3>
+							<span class="position">Software Developer</span>
+						</div>
+					</div>
 
-<p>We're also looking for volunteer packagers and maintainers to other distributions that can help us extend KVIrc's availability to other OS's.</p>
+					<div class="col-md-4">
+						<div class="team-box text-center to-animate-2">
+							<div class="user"><a href="https://github.com/Dessa" class="fa fa-github" target="_blank"><img class="img-reponsive" src="ihttps://avatars2.githubusercontent.com/u/110693?v=3&s=400" alt="Dessa"></a></div>
+							<h3>Dessa</h3>
+							<span class="position">Software Developer</span>
+						</div>
+					</div>
+				</div><br>
 
-<h2>
-<a id="install-and-compile" class="anchor" href="#install-and-compile" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install and compile</h4>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="team-box text-center to-animate-2">
+							<div class="user"><a href="https://github.com/pragmaware" class="fa fa-github" target="_blank"><img class="img-reponsive" src="https://avatars3.githubusercontent.com/u/8988456?v=3&s=400" alt="Szymon Tomasz Stefanek"></a></div>
+							<h3>Szymon Tomasz Stefanek</h3>
+							<span class="position">Founder & Software Developer</span>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="team-box text-center to-animate-2">
+							<div class="user"><a href="https://github.com/RCMainak" class="fa fa-github" target="_blank"><img class="img-reponsive" src="https://avatars2.githubusercontent.com/u/12175980?v=3&s=400" alt="Mainak Roy Chowdhury"></a></div>
+							<h3>Mainak Roy Chowdhury</h3>
+							<span class="position">Web Developer</span>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="team-box text-center to-animate-2">
+							<div class="user"><a href="https://github.com/staticfox" class="fa fa-github" target="_blank"><img class="img-reponsive" src="https://avatars2.githubusercontent.com/u/6256971?v=3&s=400" alt="BlindSight"></a></div>
+							<h3>BlindSight</h3>
+							<span class="position">Software Developer</span>
+						</div>
+					</div>
+				</div><br>
 
-<p>Compiling KVIrc on your Linux platform is now easier than ever, and the best way to enjoy the best KVIrc versions yet.</p>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="team-box text-center to-animate-2">
+							<div class="user"><a href="https://github.com/TheReign" class="fa fa-github" target="_blank"><img class="img-reponsive" src="https://avatars3.githubusercontent.com/u/16154486?v=3&s=400" alt="TheReign"></a></div>
+							<h3>TheReign</h3>
+							<span class="position">Software Developer</span>
+						</div>
+					</div>		
+					<div class="col-md-4">
+						<div class="team-box text-center to-animate-2">
+							<div class="user"><a href="https://github.com/un1versal" class="fa fa-github" target="_blank"><img class="img-reponsive" src="https://avatars3.githubusercontent.com/u/3521959?v=3&s=400" alt="un1versal"></a></div>
+							<h3>un1versal</h3>
+							<span class="position">Software Developer</span>
+						</div>
+					</div>
 
-<ul>
-<li><a href="https://github.com/kvirc/KVIrc/blob/master/doc/INSTALL.txt">Linux install</a></li>
-<li><a href="https://github.com/kvirc/KVIrc/blob/master/doc/INSTALL-MacOS.txt">OS X install</a></li>
-<li>Windows <a href="https://github.com/kvirc/KVIrc/blob/master/doc/INSTALL-Win32.txt">32-bit install</a> or <a href="https://github.com/kvirc/KVIrc/blob/master/doc/INSTALL-Win64.txt">64-bit Install</a></li>
-</ul>
+					
 
-<h2>
-<a id="licensing" class="anchor" href="#licensing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Licensing</h4>
+					<div class="col-md-4">
+						<div class="team-box text-center to-animate-2">
+							<div class="user"><a href="https://github.com/wodim" class="fa fa-github" target="_blank"><img class="img-reponsive" src="https://avatars0.githubusercontent.com/u/1001553?v=3&s=400" alt="wodim"></a></div>
+							<h3>wodim</h3>
+							<span class="position">Software Developer</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<ul>
-<li><a href="https://github.com/kvirc/KVIrc/blob/master/doc/LICENSE-GPLV2">GPLv2</a></li>
-<li><a href="https://github.com/kvirc/KVIrc/blob/master/doc/LICENSE-GPLV3">GPLv3</a></li>
-<li><a href="https://github.com/kvirc/KVIrc/blob/master/doc/LICENSE-OPENSSL">OpenSSL</a></li>
-</ul>
-      </section>
-    </div>
+	<!-- FAQ Section -->
+	<section id="fh5co-faq" data-section="faq">
+		<div class="fh5co-faq">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 section-heading text-center">
+						<h2 class="to-animate">Common Questions</h2>
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2 subtext">
+								<h3 class="to-animate">Everything you need to know before you get started</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="box-faq to-animate-2">
+							<h3>What is KVIrc?</h3>
+							<p>A IRC Client which helps you connect to IRC servers all over the world using address of that server. The address maybe ip address of the server or a DNS namespace address.</p>
+						</div>
+						
+						<div class="box-faq to-animate-2">
+							<h3>Is KVIrc malware?</h3>
+							<p>NO! It is not a malware. The source code is available on <a href="https://github.com/kvirc/KVIrc">GitHub</a>. Anyone can review or audit the code. In fact we appreciate people to do code reviews. After all it's a Open Source project.</p>
+						</div>
 
-    
-  </body>
+						<div class="box-faq to-animate-2">
+							<h3>Can I use KVIrc as a portable application?</h3>
+							<p>Yes! During instalation choose a portable directory and on first setup choose ("All settings in shared program folder (portable)"). Here portable directory means some "usb" path to install or even dropbox. There are  users running kvirc fully from dropbox, Windows users at least</p>
+						</div>
+
+					</div>
+
+					<div class="col-md-6">
+						<div class="box-faq to-animate-2">
+							<h3>What language are available?</h3>
+							<p>We support many languages. The supported languages are  PORTUGUESE (BRAZIL), PORTUGUESE,ITALIAN, RUSSIAN, ESPERANTO, GERMAN, UKRAINIAN and HUNGARIAN. If you want KVIrc in your language contact us we will be happy to help you.</p>
+						</div>
+						<div class="box-faq to-animate-2">
+							<h3>Does KVIrc work on my system? (Windows10/8.1/8/7, OSX, ...)</h3>
+							<p>Yes! This awesome client works on any veriation of Linux, Windows 7, 8, 8.1, 10 and OS X. Now you can use your favourite client every where...</p>
+						</div>
+						<div class="box-faq to-animate-2">
+							<h3>Is KVIrc free?</h3>
+							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+						</div>
+					</div>
+				</div>
+				<div style="background: #1fb5f6" class="call-to-action text-center to-animate"><a href="https://github.com/kvirc/KVIrc/wiki/FAQ" class="btn btn-learn">Learn More</a></div>
+			</div>
+		</div>
+	</section>
+
+	<hr>
+
+	<!-- Trusted by Section -->
+	<section id="fh5co-trusted" data-section="trusted">
+		<div class="fh5co-trusted">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 section-heading text-center">
+						<h2 class="to-animate">Trusted By</h2>
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2 subtext">
+								<h3 class="to-animate">We’re trusted by thosands of people & popular open sourece communities</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Advertisment of Download button -->
+	<div class="getting-started getting-started-2">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 to-animate">
+					<h3>Getting Started</h3>
+					<p>The IRC client cool people use. It's free & always will be. A Client which respects your privacy. </p>
+				</div>
+				<div class="col-md-6 to-animate-2">
+					<div class="call-to-action text-right">
+						<a href="#" class="sign-up" id="downloadbtn2">Download</a>
+					</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer Section -->
+	<div id="fh5co-footer" role="contentinfo">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 to-animate">
+					<h3 class="section-title">About Us</h3>
+					<p>A great community of people who love what they do & do what they love. Join today we have something to work on for everyone, regardless of their technical skils.</p>
+					<p class="copy-right">&copy; <iframe src="http://free.timeanddate.com/clock/i539lko1/n17/fn5/fcfff/tct/pct/tt1/tw0" frameborder="0" width="107" height="17" allowTransparency="true"></iframe> <br>All Rights Reserved. <br>
+						Designed by <a href="http://www.kvirc.net" target="_blank">KVIrc</a>
+					</p>
+				</div>
+
+				<div class="col-md-4 to-animate">
+					<h3 class="section-title">Our Address</h3>
+					<ul class="contact-info">
+						<li><i class="fa fa-envelope"></i><a href="mailto:kvirc@lists.omnikron.net">kvirc@lists.omnikron.net</a></li>
+						<li><i class="fa fa-globe"></i><a href="http://www.kvirc.net" target="_blank">www.kvirc.net</a></li>
+					</ul>
+					<h3 class="section-title">Connect with Us</h3>
+					<ul class="social-media">
+						<li><a href="https://www.facebook.com/KVIrc/" target="_blank" class="fa fa-facebook"></a></li>
+						<li><a href="https://twitter.com/KVIrc" class="fa fa-twitter" target="_blank"></a></li>
+						<li><a href="https://github.com/kvirc" class="fa fa-github" target="_blank"></a></li>
+					</ul>
+				</div>
+				<div class="col-md-4 to-animate">
+					<h3 class="section-title">Drop us a line</h3>
+					<!-- I can send a form as a mail using PHPMailer but for now I'll skip it. This is just a prototype. -->
+					<form class="contact-form">
+						<div class="form-group">
+							<label for="name" class="sr-only">Name</label>
+							<input type="name" class="form-control" id="name" placeholder="Name">
+						</div>
+						<div class="form-group">
+							<label for="email" class="sr-only">Email</label>
+							<input type="email" class="form-control" id="email" placeholder="Email">
+						</div>
+						<div class="form-group">
+							<label for="message" class="sr-only">Message</label>
+							<textarea class="form-control" id="message" rows="7" placeholder="Message"></textarea>
+						</div>
+						<div class="form-group">
+							<input type="submit" id="btn-submit" class="btn btn-send-message btn-md" value="Send Message">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
 </html>
+
