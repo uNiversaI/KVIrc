@@ -57,10 +57,8 @@ static TorrentInterface * auto_detect_torrent_client(KviWindow * pOut = nullptr)
 
 			if(pOut)
 			{
-				pOut->output(KVI_OUT_TORRENT,
-				    __tr2qs_ctx("Trying torrent client interface \"%Q\": score %d", "torrent"),
-				    &d->name(),
-				    iScore);
+				pOut->output(KVI_OUT_TORRENT, __tr2qs_ctx("Trying torrent client interface \"%Q\": score %d", "torrent"),
+				    &d->name(), iScore);
 			}
 		}
 	}
@@ -69,15 +67,13 @@ static TorrentInterface * auto_detect_torrent_client(KviWindow * pOut = nullptr)
 	{
 		KVI_OPTION_STRING(KviOption_stringPreferredTorrentClient) = pDBest->name();
 		if(pOut)
-			pOut->output(KVI_OUT_TORRENT,
-			    __tr2qs_ctx("Choosing torrent client interface \"%Q\"", "torrent"),
+			pOut->output(KVI_OUT_TORRENT, __tr2qs_ctx("Choosing torrent client interface \"%Q\"", "torrent"),
 			    &pDBest->name());
 	}
 	else
 	{
 		if(pOut)
-			pOut->outputNoFmt(KVI_OUT_TORRENT,
-			    __tr2qs_ctx("Seems that there is no usable torrent client on this machine", "torrent"));
+			pOut->outputNoFmt(KVI_OUT_TORRENT, __tr2qs_ctx("Seems that there is no usable torrent client on this machine", "torrent"));
 	}
 
 	return pBest;

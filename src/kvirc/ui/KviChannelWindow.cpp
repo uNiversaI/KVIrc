@@ -1225,8 +1225,7 @@ void KviChannelWindow::ownMessage(const QString & szBuffer, bool bUserFeedback)
 					default: // also case KviCryptEngine::EncryptError
 					{
 						QString szEngineError = cryptSessionInfo()->m_pEngine->lastError();
-						output(KVI_OUT_SYSTEMERROR,
-						    __tr2qs("The encryption engine was unable to encrypt the current message (%Q): %Q, no data sent to the server"),
+						output(KVI_OUT_SYSTEMERROR, __tr2qs("The encryption engine was unable to encrypt the current message (%Q): %Q, no data sent to the server"),
 						    &szBuffer, &szEngineError);
 					}
 					break;
@@ -1280,7 +1279,6 @@ void KviChannelWindow::ownMessage(const QString & szBuffer, bool bUserFeedback)
 				                               //printf("OPTIMIZATION: fPosDiff %f, iPos %d\n", fPosDiff, iPos);
 			}
 			//printf("Multi message: %d optimization cyles", iC);
-
 			// now, do it the simple way: increment our index until we perfectly fit into the
 			// available space
 			while(1)

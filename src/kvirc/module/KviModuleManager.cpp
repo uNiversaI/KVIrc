@@ -270,9 +270,7 @@ bool KviModuleManager::loadModule(const QString & modName)
 		{
 			KviConsoleWindow * pWnd = g_pMainWindow->firstConsole();
 			if(pWnd) // this may be NULL when the app is starting up
-				pWnd->output(
-				    KVI_OUT_VERBOSE,
-				    __tr2qs("Loaded module '%s' (%s)"),
+				pWnd->output( KVI_OUT_VERBOSE, __tr2qs("Loaded module '%s' (%s)"),
 				    modName.toUtf8().data(),
 				    szName.toUtf8().data());
 		}

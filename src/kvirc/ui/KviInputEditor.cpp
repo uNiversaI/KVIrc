@@ -669,15 +669,13 @@ void KviInputEditor::rebuildTextBlocks()
 	}
 
 	// apply selection marks too
-	if(
-	    (m_iSelectionEnd <= m_iSelectionBegin) || (m_iSelectionEnd == -1) || (m_iSelectionBegin == -1) || (m_iSelectionBegin > m_szTextBuffer.length()))
+	if((m_iSelectionEnd <= m_iSelectionBegin) || (m_iSelectionEnd == -1) || (m_iSelectionBegin == -1) || (m_iSelectionBegin > m_szTextBuffer.length()))
 	{
 		m_iSelectionEnd = -1;
 		m_iSelectionBegin = -1;
 	}
 	else
 	{
-
 		int iCurStart = 0;
 		int cnt = m_p->lTextBlocks.count();
 

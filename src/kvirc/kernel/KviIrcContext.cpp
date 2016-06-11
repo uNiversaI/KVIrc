@@ -632,8 +632,7 @@ void KviIrcContext::connectionFailed(int iError)
 	if(!m_pConnection)
 		return; // this may happen in the destructor!
 
-	m_pConsole->output(KVI_OUT_SYSTEMERROR,
-	    __tr2qs("Connection attempt failed [%s]"),
+	m_pConsole->output(KVI_OUT_SYSTEMERROR, __tr2qs("Connection attempt failed [%s]"),
 	    m_pConnection->target()->server()->hostName().toUtf8().data());
 
 	// if the connection has been aborted by the user then just go idle

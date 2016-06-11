@@ -991,8 +991,8 @@ void KviIrcServerParser::echoCtcpReply(KviCtcpMessage * msg)
 			if(!pOut)
 			{
 				pOut = msg->msg->console();
-				pOut->output(KVI_OUT_SYSTEMWARNING,
-				    __tr2qs("The following CTCP reply has unrecognized target %Q"), &(msg->szTarget));
+				pOut->output(KVI_OUT_SYSTEMWARNING, __tr2qs("The following CTCP reply has unrecognized target %Q"),
+				    &(msg->szTarget));
 			}
 			else
 				bIsChannel = true;
@@ -1002,11 +1002,9 @@ void KviIrcServerParser::echoCtcpReply(KviCtcpMessage * msg)
 
 		QString szWhat = bIsChannel ? __tr2qs("Channel CTCP") : QString("CTCP");
 
-		pOut->output(
-		    msg->bUnknown ? KVI_OUT_CTCPREPLYUNKNOWN : KVI_OUT_CTCPREPLY,
-		    __tr2qs("%Q %Q reply from \r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q"),
-		    &szWhat, &(msg->szTag), &(msg->pSource->nick()), &(msg->pSource->user()),
-		    &(msg->pSource->host()), &szData);
+		pOut->output(msg->bUnknown ? KVI_OUT_CTCPREPLYUNKNOWN : KVI_OUT_CTCPREPLY, __tr2qs("%Q %Q reply from \r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q"),
+		    &szWhat, &(msg->szTag), &(msg->pSource->nick()),
+		    &(msg->pSource->user()), &(msg->pSource->host()), &szData);
 	}
 }
 
@@ -1033,8 +1031,7 @@ void KviIrcServerParser::echoCtcpRequest(KviCtcpMessage * msg)
 			if(!pOut)
 			{
 				pOut = msg->msg->console();
-				pOut->output(KVI_OUT_SYSTEMWARNING,
-				    __tr2qs("The following CTCP request has unrecognized target %Q"),
+				pOut->output(KVI_OUT_SYSTEMWARNING, __tr2qs("The following CTCP request has unrecognized target %Q"),
 				    &(msg->szTarget));
 			}
 			else
@@ -1049,8 +1046,7 @@ void KviIrcServerParser::echoCtcpRequest(KviCtcpMessage * msg)
 		{
 			QString szData = msg->msg->connection()->decodeText(msg->pData);
 			if(!KVS_TRIGGER_EVENT_6_HALTED(KviEvent_OnCTCPFlood, pOut, msg->pSource->nick(), msg->pSource->user(), msg->pSource->host(), msg->szTarget, msg->szTag, szData))
-				pOut->output(KVI_OUT_CTCPREQUESTFLOOD,
-				    __tr2qs("%Q %Q%c request from \r!n\r%Q\r [%Q@\r!h\r%Q\r] (%Q), ignored (flood limit exceeded)"),
+				pOut->output(KVI_OUT_CTCPREQUESTFLOOD, __tr2qs("%Q %Q%c request from \r!n\r%Q\r [%Q@\r!h\r%Q\r] (%Q), ignored (flood limit exceeded)"),
 				    &szWhat, &szTag, KviControlCodes::Reset, &(msg->pSource->nick()),
 				    &(msg->pSource->user()), &(msg->pSource->host()), &szRequest);
 		}
@@ -1058,8 +1054,7 @@ void KviIrcServerParser::echoCtcpRequest(KviCtcpMessage * msg)
 		{
 			QString szAction = msg->bUnknown ? __tr2qs("ignored (unrecognized)") : (msg->bIgnored ? __tr2qs("ignored") : __tr2qs("replied"));
 			pOut->output(
-			    msg->bUnknown ? KVI_OUT_CTCPREQUESTUNKNOWN : (msg->bIgnored ? KVI_OUT_CTCPREQUESTIGNORED : KVI_OUT_CTCPREQUESTREPLIED),
-			    __tr2qs("%Q %Q%c request from \r!n\r%Q\r [%Q@\r!h\r%Q\r] (%Q), %Q"),
+			    msg->bUnknown ? KVI_OUT_CTCPREQUESTUNKNOWN : (msg->bIgnored ? KVI_OUT_CTCPREQUESTIGNORED : KVI_OUT_CTCPREQUESTREPLIED), __tr2qs("%Q %Q%c request from \r!n\r%Q\r [%Q@\r!h\r%Q\r] (%Q), %Q"),
 			    &szWhat, &szTag, KviControlCodes::Reset, &(msg->pSource->nick()),
 			    &(msg->pSource->user()), &(msg->pSource->host()), &szRequest, &szAction);
 		}
@@ -1096,8 +1091,7 @@ void KviIrcServerParser::parseCtcpReplyPing(KviCtcpMessage * msg)
 			if(!pOut)
 			{
 				pOut = msg->msg->console();
-				pOut->output(KVI_OUT_SYSTEMWARNING,
-				    __tr2qs("The following CTCP PING reply has unrecognized target \"%Q\""),
+				pOut->output(KVI_OUT_SYSTEMWARNING, __tr2qs("The following CTCP PING reply has unrecognized target \"%Q\""),
 				    &(msg->szTarget));
 			}
 			else
@@ -1134,8 +1128,7 @@ void KviIrcServerParser::parseCtcpReplyPing(KviCtcpMessage * msg)
 
 		uSecs = szTime.toUInt(&bOk);
 		if(!bOk)
-			pOut->output(KVI_OUT_SYSTEMWARNING,
-			    __tr2qs("The following CTCP PING reply has a broken time identifier \"%S\", don't trust the displayed time"), &szTime);
+			pOut->output(KVI_OUT_SYSTEMWARNING, __tr2qs("The following CTCP PING reply has a broken time identifier \"%S\", don't trust the displayed time"), &szTime);
 
 		unsigned int uDiffSecs = tv.tv_sec - uSecs;
 
@@ -1152,10 +1145,9 @@ void KviIrcServerParser::parseCtcpReplyPing(KviCtcpMessage * msg)
 		QString szWhat = bIsChannel ? __tr2qs("Channel CTCP") : QString("CTCP");
 
 		pOut->output(
-		    msg->bUnknown ? KVI_OUT_CTCPREPLYUNKNOWN : KVI_OUT_CTCPREPLY,
-		    __tr2qs("%Q PING reply from \r!n\r%Q\r [%Q@\r!h\r%Q\r]: %u sec %u msec"),
-		    &szWhat, &(msg->pSource->nick()),
-		    &(msg->pSource->user()), &(msg->pSource->host()), uDiffSecs, uDiffMSecs);
+		    msg->bUnknown ? KVI_OUT_CTCPREPLYUNKNOWN : KVI_OUT_CTCPREPLY, __tr2qs("%Q PING reply from \r!n\r%Q\r [%Q@\r!h\r%Q\r]: %u sec %u msec"),
+		    &szWhat, &(msg->pSource->nick()), &(msg->pSource->user()),
+		    &(msg->pSource->host()), uDiffSecs, uDiffMSecs);
 	}
 }
 
@@ -1555,13 +1547,11 @@ void KviIrcServerParser::parseCtcpRequestAction(KviCtcpMessage * msg)
 	{
 		if(bIsChannel)
 		{
-			pOut->output(KVI_OUT_SYSTEMWARNING,
-			    __tr2qs("The following CTCP ACTION has unrecognized target %Q"),
+			pOut->output(KVI_OUT_SYSTEMWARNING, __tr2qs("The following CTCP ACTION has unrecognized target %Q"),
 			    &(msg->szTarget));
 		}
 		KviCString buffer1, buffer2;
-		pOut->output(type,
-		    __tr2qs("CTCP ACTION from \r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q"),
+		pOut->output(type, __tr2qs("CTCP ACTION from \r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q"),
 		    &(msg->pSource->nick()), &(msg->pSource->user()),
 		    &(msg->pSource->host()), &szData);
 	}
@@ -1825,8 +1815,7 @@ void KviIrcServerParser::parseCtcpRequestDcc(KviCtcpMessage * msg)
 		{
 			if(KVI_OPTION_BOOL(KviOption_boolVerboseIgnore))
 			{
-				msg->msg->console()->output(KVI_OUT_DCCREQUEST,
-				    __tr2qs("Ignoring DCC %S request from \r!n\r%Q\r [%Q@\r!h\r%Q\r] (%Q %S)"),
+				msg->msg->console()->output(KVI_OUT_DCCREQUEST, __tr2qs("Ignoring DCC %S request from \r!n\r%Q\r [%Q@\r!h\r%Q\r] (%Q %S)"),
 				    &p.szType, &(msg->pSource->nick()),
 				    &(msg->pSource->user()), &(msg->pSource->host()),
 				    &msg->szTag, &aux);
@@ -1849,10 +1838,8 @@ void KviIrcServerParser::parseCtcpRequestDcc(KviCtcpMessage * msg)
 		if(!msg->msg->haltOutput())
 		{
 			QString decoded = msg->msg->console()->decodeText(p.szType.ptr());
-			msg->msg->console()->output(KVI_OUT_DCCREQUEST,
-			    __tr2qs("Processing DCC %Q request from \r!n\r%Q\r [%Q@\r!h\r%Q\r] (%s %s)"),
-			    &decoded, &(msg->pSource->nick()),
-			    &(msg->pSource->user()), &(msg->pSource->host()),
+			msg->msg->console()->output(KVI_OUT_DCCREQUEST, __tr2qs("Processing DCC %Q request from \r!n\r%Q\r [%Q@\r!h\r%Q\r] (%s %s)"),
+			    &decoded, &(msg->pSource->nick()), &(msg->pSource->user()), &(msg->pSource->host()),
 			    msg->szTag.toUtf8().data(),
 			    msg->msg->console()->decodeText(aux).toUtf8().data());
 		}

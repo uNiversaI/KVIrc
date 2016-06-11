@@ -91,8 +91,7 @@ void KviIrcServerParser::parseLiteralPing(KviIrcMessage * msg)
 
 	if((!msg->haltOutput()) && KVI_OPTION_BOOL(KviOption_boolShowPingPong))
 	{
-		msg->console()->output(KVI_OUT_SERVERPING,
-		    __tr2qs("Received ping from \r!s\r%Q\r (PING %Q), replied pong"),
+		msg->console()->output(KVI_OUT_SERVERPING, __tr2qs("Received ping from \r!s\r%Q\r (PING %Q), replied pong"),
 		    &szPrefix, &szAllParams);
 	}
 }
@@ -117,8 +116,8 @@ void KviIrcServerParser::parseLiteralPong(KviIrcMessage * msg)
 
 	if((!msg->haltOutput()) && KVI_OPTION_BOOL(KviOption_boolShowPingPong))
 	{
-		msg->console()->output(KVI_OUT_SERVERPING,
-		    __tr2qs("Received pong from \r!s\r%s\r (PONG %s)"), msg->safePrefix(), msg->allParams());
+		msg->console()->output(KVI_OUT_SERVERPING, __tr2qs("Received pong from \r!s\r%s\r (PONG %s)"),
+		    msg->safePrefix(), msg->allParams());
 	}
 }
 
@@ -140,8 +139,8 @@ void KviIrcServerParser::parseLiteralError(KviIrcMessage * msg)
 
 	if(!msg->haltOutput())
 	{
-		msg->console()->output(KVI_OUT_SERVERERROR,
-		    __tr2qs("Server ERROR: %Q"), &szParams);
+		msg->console()->output(KVI_OUT_SERVERERROR, __tr2qs("Server ERROR: %Q"),
+		    &szParams);
 	}
 }
 
@@ -292,7 +291,7 @@ void KviIrcServerParser::parseLiteralJoin(KviIrcMessage * msg)
 		{
 			chExtMode = (char)pExt->unicode();
 			channel.remove(channel.length() - 2, 2); // assuming that we're at the end (we should be)
-		}                                            // else { senseless 0x07 in channel name ?
+		}                                                // else { senseless 0x07 in channel name ?
 	}
 
 	// Now lookup the channel
@@ -392,14 +391,12 @@ void KviIrcServerParser::parseLiteralJoin(KviIrcMessage * msg)
 
 		if(chExtMode != 0)
 		{
-			chan->output(KVI_OUT_JOIN,
-			    __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has joined \r!c\r%Q\r [implicit +%c umode change]"),
+			chan->output(KVI_OUT_JOIN, __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has joined \r!c\r%Q\r [implicit +%c umode change]"),
 			    &szNick, &szUser, &szHost, &channel, chExtMode);
 		}
 		else
 		{
-			chan->output(KVI_OUT_JOIN,
-			    __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has joined \r!c\r%Q\r"),
+			chan->output(KVI_OUT_JOIN, __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has joined \r!c\r%Q\r"),
 			    &szNick, &szUser, &szHost, &channel);
 		}
 	}
@@ -411,9 +408,8 @@ void KviIrcServerParser::parseLiteralJoin(KviIrcMessage * msg)
 	{
 		if(KVI_OPTION_BOOL(KviOption_boolEnableQueryTracing))
 		{
-			q->output(KVI_OUT_QUERYTRACE,
-			    __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has just joined \r!c\r%Q\r"), &szNick, &szUser,
-			    &szHost, &channel);
+			q->output(KVI_OUT_QUERYTRACE, __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has just joined \r!c\r%Q\r"), 
+			    &szNick, &szUser, &szHost, &channel);
 			q->notifyCommonChannels(szNick, szUser, szHost, iChans, szChans);
 		}
 		else
@@ -491,13 +487,11 @@ void KviIrcServerParser::parseLiteralPart(KviIrcMessage * msg)
 		if(!msg->haltOutput())
 		{
 			if(!partMsg.isEmpty())
-				chan->output(KVI_OUT_PART,
-				    __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has left \r!c\r%Q\r: %Q"), &szNick, &szUser,
-				    &szHost, &szChan, &partMsg);
+				chan->output(KVI_OUT_PART, __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has left \r!c\r%Q\r: %Q"), 
+			            &szNick, &szUser, &szHost, &szChan, &partMsg);
 			else
-				chan->output(KVI_OUT_PART,
-				    __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has left \r!c\r%Q\r"), &szNick, &szUser,
-				    &szHost, &szChan);
+				chan->output(KVI_OUT_PART, __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has left \r!c\r%Q\r"),
+			            &szNick, &szUser, &szHost, &szChan);
 		}
 
 		if(KVI_OPTION_BOOL(KviOption_boolEnableQueryTracing))
@@ -508,12 +502,10 @@ void KviIrcServerParser::parseLiteralPart(KviIrcMessage * msg)
 			if(q)
 			{
 				if(!partMsg.isEmpty())
-					q->output(KVI_OUT_QUERYTRACE,
-					    __tr2qs("\r!nc\r%Q\r [%Q@\r!h\r%Q\r] has just left \r!c\r%Q\r: %Q"),
+					q->output(KVI_OUT_QUERYTRACE, __tr2qs("\r!nc\r%Q\r [%Q@\r!h\r%Q\r] has just left \r!c\r%Q\r: %Q"),
 					    &szNick, &szUser, &szHost, &szChan, &partMsg);
 				else
-					q->output(KVI_OUT_QUERYTRACE,
-					    __tr2qs("\r!nc\r%Q\r [%Q@\r!h\r%Q\r] has just left \r!c\r%Q\r"),
+					q->output(KVI_OUT_QUERYTRACE, __tr2qs("\r!nc\r%Q\r [%Q@\r!h\r%Q\r] has just left \r!c\r%Q\r"),
 					    &szNick, &szUser, &szHost, &szChan);
 				q->notifyCommonChannels(szNick, szUser, szHost, iChans, szChans);
 			}
@@ -641,8 +633,7 @@ void KviIrcServerParser::parseLiteralQuit(KviIrcMessage * msg)
 				}
 
 				if(!msg->haltOutput())
-					c->output(KVI_OUT_QUIT,
-					    __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has quit IRC: %Q"),
+					c->output(KVI_OUT_QUIT, __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has quit IRC: %Q"),
 					    &szNick, &szUser, &szHost, &quitMsg);
 			}
 		}
@@ -710,8 +701,7 @@ void KviIrcServerParser::parseLiteralKick(KviIrcMessage * msg)
 			if(!msg->haltOutput())
 			{
 				// FIXME: #warning "OPTION FOR THIS TO GO TO THE CONSOLE!"
-				chan->output(KVI_OUT_MEKICK,
-				    __tr2qs("You have been kicked from \r!c\r%Q\r by \r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q"),
+				chan->output(KVI_OUT_MEKICK, __tr2qs("You have been kicked from \r!c\r%Q\r by \r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q"),
 				    &szChan, &szNick, &szUser, &szHost, &szKickMsg);
 			}
 		}
@@ -722,8 +712,7 @@ void KviIrcServerParser::parseLiteralKick(KviIrcMessage * msg)
 			if(!msg->haltOutput())
 			{
 				// FIXME: #warning "This could go also to the active window!"
-				console->output(KVI_OUT_MEKICK,
-				    __tr2qs("You have been kicked from \r!c\r%Q\r by \r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q"),
+				console->output(KVI_OUT_MEKICK, __tr2qs("You have been kicked from \r!c\r%Q\r by \r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q"),
 				    &szChan, &szNick, &szUser, &szHost, &szKickMsg);
 			}
 		}
@@ -771,8 +760,7 @@ void KviIrcServerParser::parseLiteralKick(KviIrcMessage * msg)
 		if(!msg->haltOutput())
 		{
 			// FIXME: #warning "OPTION FOR THIS TO GO TO THE CONSOLE!"
-			chan->output(KVI_OUT_KICK,
-			    __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has been kicked from \r!c\r%Q\r by \r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q"),
+			chan->output(KVI_OUT_KICK, __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has been kicked from \r!c\r%Q\r by \r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q"),
 			    &victim, &szVUser, &szVHost, &szChan, &szNick, &szUser, &szHost, &szKickMsg);
 		}
 
@@ -783,10 +771,8 @@ void KviIrcServerParser::parseLiteralKick(KviIrcMessage * msg)
 			{
 				QString szChans;
 				int iChans = console->connection()->getCommonChannels(victim, szChans);
-				q->output(KVI_OUT_QUERYTRACE,
-				    __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has just been kicked from \r!c\r%Q\r by \r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q"),
-				    &victim, &szVUser, &szVHost, &szChan,
-				    &szNick, &szUser, &szHost, &szKickMsg);
+				q->output(KVI_OUT_QUERYTRACE, __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has just been kicked from \r!c\r%Q\r by \r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q"),
+				    &victim, &szVUser, &szVHost, &szChan, &szNick, &szUser, &szHost, &szKickMsg);
 				q->notifyCommonChannels(victim, szVUser, szVHost, iChans, szChans);
 			}
 		}
@@ -978,8 +964,7 @@ void KviIrcServerParser::parseLiteralPrivmsg(KviIrcMessage * msg)
 						if(!(msg->haltOutput() || KVI_OPTION_BOOL(KviOption_boolSilentAntiSpam)))
 						{
 							QString szMsg = msg->connection()->decodeText(msg->safeTrailing());
-							console->output(KVI_OUT_SPAM, msg->serverTime(),
-							    __tr2qs("Spam PRIVMSG from \r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q (matching spamword \"%s\")"),
+							console->output(KVI_OUT_SPAM, msg->serverTime(), __tr2qs("Spam PRIVMSG from \r!n\r%Q\r [%Q@\r!h\r%Q\r]: %Q (matching spamword \"%s\")"),
 							    &szNick, &szUser, &szHost, &szMsg, spamWord.ptr());
 						}
 						return;
@@ -1709,8 +1694,7 @@ void KviIrcServerParser::parseLiteralTopic(KviIrcMessage * msg)
 
 	if(!msg->haltOutput())
 	{
-		chan->output(KVI_OUT_TOPIC,
-		    __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has changed topic to \"%Q%c\""),
+		chan->output(KVI_OUT_TOPIC, __tr2qs("\r!n\r%Q\r [%Q@\r!h\r%Q\r] has changed topic to \"%Q%c\""),
 		    &szNick, &szUser, &szHost, &szTopic, KviControlCodes::Reset);
 	}
 }
@@ -1792,8 +1776,7 @@ void KviIrcServerParser::parseLiteralNick(KviIrcMessage * msg)
 	{
 		if(KVI_OPTION_BOOL(KviOption_boolEnableQueryTracing) && (!_OUTPUT_QUIET))
 		{
-			old->output(KVI_OUT_QUERYTRACE,
-			    __tr2qs("The target of this query was lost and has been found when \r!n\r%Q\r [%Q@\r!h\r%Q\r] changed their nickname to \r!n\r%Q\r"),
+			old->output(KVI_OUT_QUERYTRACE, __tr2qs("The target of this query was lost and has been found when \r!n\r%Q\r [%Q@\r!h\r%Q\r] changed their nickname to \r!n\r%Q\r"),
 			    &szNick, &szUser, &szHost, &szNewNick);
 		}
 
@@ -1802,8 +1785,7 @@ void KviIrcServerParser::parseLiteralNick(KviIrcMessage * msg)
 			bool bQWasActive = (q == g_pActiveWindow);
 			if(!_OUTPUT_MUTE)
 			{
-				old->output(KVI_OUT_SYSTEMWARNING,
-				    __tr2qs("The recent nickname change from \r!n\r%Q\r to \r!n\r%Q\r caused a query collision: merging output"),
+				old->output(KVI_OUT_SYSTEMWARNING, __tr2qs("The recent nickname change from \r!n\r%Q\r to \r!n\r%Q\r caused a query collision: merging output"),
 				    &szNick, &szNewNick);
 			}
 			old->mergeQuery(q);
@@ -2295,15 +2277,13 @@ void KviIrcServerParser::parseChannelMode(const QString & szNick, const QString 
 					{
 						if(aParam.isEmpty())
 						{
-							chan->output(KVI_OUT_CHANMODE,
-							    __tr2qs("%Q [%Q@%Q] has set channel \r!m%c%c\rmode %c%c\r"),
+							chan->output(KVI_OUT_CHANMODE, __tr2qs("%Q [%Q@%Q] has set channel \r!m%c%c\rmode %c%c\r"),
 							    &szNickBuffer, &szUser, &szHostBuffer,
 							    bSet ? '-' : '+', *aux, bSet ? '+' : '-', *aux);
 						}
 						else
 						{
-							chan->output(KVI_OUT_CHANMODE,
-							    __tr2qs("%Q [%Q@%Q] has set mode %c%c \r!m%c%c %Q\r%Q\r"),
+							chan->output(KVI_OUT_CHANMODE, __tr2qs("%Q [%Q@%Q] has set mode %c%c \r!m%c%c %Q\r%Q\r"),
 							    &szNickBuffer, &szUser, &szHostBuffer,
 							    bSet ? '+' : '-', *aux, bSet ? '-' : '+', *aux, &aParam, &aParam);
 						}
@@ -2324,8 +2304,7 @@ void KviIrcServerParser::parseChannelMode(const QString & szNick, const QString 
 
 					if(!(msg->haltOutput() || bShowAsCompact))
 					{
-						chan->output(KVI_OUT_CHANMODE,
-						    __tr2qs("%Q [%Q@%Q] has set channel \r!m%c%c\rmode %c%c\r"),
+						chan->output(KVI_OUT_CHANMODE, __tr2qs("%Q [%Q@%Q] has set channel \r!m%c%c\rmode %c%c\r"),
 						    &szNickBuffer, &szUser, &szHostBuffer,
 						    bSet ? '-' : '+', *aux, bSet ? '+' : '-', *aux);
 					}
@@ -2384,8 +2363,7 @@ void KviIrcServerParser::parseChannelMode(const QString & szNick, const QString 
 					{
 						if(aParam.isEmpty())
 						{
-							chan->output(KVI_OUT_CHANMODE,
-							    __tr2qs("%Q [%Q@%Q] has set channel \r!m%c%c\rmode %c%c\r"),
+							chan->output(KVI_OUT_CHANMODE, __tr2qs("%Q [%Q@%Q] has set channel \r!m%c%c\rmode %c%c\r"),
 							    &szNickBuffer, &szUser, &szHostBuffer,
 							    bSet ? '-' : '+', *aux, bSet ? '+' : '-', *aux);
 						}
@@ -2413,15 +2391,13 @@ void KviIrcServerParser::parseChannelMode(const QString & szNick, const QString 
 					{
 						if(aParam.isEmpty())
 						{
-							chan->output(KVI_OUT_CHANMODE,
-							    __tr2qs("%Q [%Q@%Q] has set channel \r!m%c%c\rmode %c%c\r"),
+							chan->output(KVI_OUT_CHANMODE, __tr2qs("%Q [%Q@%Q] has set channel \r!m%c%c\rmode %c%c\r"),
 							    &szNickBuffer, &szUser, &szHostBuffer,
 							    bSet ? '-' : '+', *aux, bSet ? '+' : '-', *aux);
 						}
 						else
 						{
-							chan->output(KVI_OUT_CHANMODE,
-							    __tr2qs("%Q [%Q@%Q] has set mode %c%c \r!m%c%c %Q\r%Q\r"),
+							chan->output(KVI_OUT_CHANMODE, __tr2qs("%Q [%Q@%Q] has set mode %c%c \r!m%c%c %Q\r%Q\r"),
 							    &szNickBuffer, &szUser, &szHostBuffer,
 							    bSet ? '+' : '-', *aux, bSet ? '-' : '+', *aux, &aParam, &aParam);
 						}
@@ -2442,15 +2418,13 @@ void KviIrcServerParser::parseChannelMode(const QString & szNick, const QString 
 					{
 						if(aParam.isEmpty())
 						{
-							chan->output(KVI_OUT_CHANMODE,
-							    __tr2qs("%Q [%Q@%Q] has set channel \r!m%c%c\rmode %c%c\r"),
+							chan->output(KVI_OUT_CHANMODE, __tr2qs("%Q [%Q@%Q] has set channel \r!m%c%c\rmode %c%c\r"),
 							    &szNickBuffer, &szUser, &szHostBuffer,
 							    bSet ? '-' : '+', *aux, bSet ? '+' : '-', *aux);
 						}
 						else
 						{
-							chan->output(KVI_OUT_CHANMODE,
-							    __tr2qs("%Q [%Q@%Q] has set mode %c%c \r!m%c%c %Q\r%Q\r"),
+							chan->output(KVI_OUT_CHANMODE, __tr2qs("%Q [%Q@%Q] has set mode %c%c \r!m%c%c %Q\r%Q\r"),
 							    &szNickBuffer, &szUser, &szHostBuffer,
 							    bSet ? '+' : '-', *aux, bSet ? '-' : '+', *aux, &aParam, &aParam);
 						}
@@ -2471,8 +2445,7 @@ void KviIrcServerParser::parseChannelMode(const QString & szNick, const QString 
 
 					if(!(msg->haltOutput() || bShowAsCompact))
 					{
-						chan->output(KVI_OUT_CHANMODE,
-						    __tr2qs("%Q [%Q@%Q] has set channel \r!m%c%c\rmode %c%c\r"),
+						chan->output(KVI_OUT_CHANMODE, __tr2qs("%Q [%Q@%Q] has set channel \r!m%c%c\rmode %c%c\r"),
 						    &szNickBuffer, &szUser, &szHostBuffer,
 						    bSet ? '-' : '+', *aux, bSet ? '+' : '-', *aux);
 					}

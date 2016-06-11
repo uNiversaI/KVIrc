@@ -220,20 +220,16 @@ static bool regchan_kvs_cmd_showlist(KviKvsModuleCommandCall * c)
 		for(KviRegisteredChannel * ch = l->first(); ch; ch = l->next())
 		{
 			tot++;
-			c->window()->outputNoFmt(
-			    KVI_OUT_SYSTEMMESSAGE,
-			    __tr2qs_ctx("Channel: %1%2@%3", "register")
-			        .arg(QChar(KviControlCodes::Bold))
-			        .arg(ch->name())
-			        .arg(ch->netMask()));
+			c->window()->outputNoFmt(KVI_OUT_SYSTEMMESSAGE, __tr2qs_ctx("Channel: %1%2@%3", "register")
+			    .arg(QChar(KviControlCodes::Bold))
+			    .arg(ch->name())
+			    .arg(ch->netMask()));
 
 			for(QHash<QString, QString>::Iterator it2 = ch->propertyDict()->begin(); it2 != ch->propertyDict()->end(); ++it2)
 			{
-				c->window()->outputNoFmt(
-				    KVI_OUT_SYSTEMMESSAGE,
-				    __tr2qs_ctx("    Property: %1=%2", "register")
-				        .arg(it2.key())
-				        .arg(it2.value()));
+				c->window()->outputNoFmt(KVI_OUT_SYSTEMMESSAGE, __tr2qs_ctx("    Property: %1=%2", "register")
+				    .arg(it2.key())
+				    .arg(it2.value()));
 			}
 		}
 	}

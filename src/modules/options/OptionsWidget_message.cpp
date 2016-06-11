@@ -71,7 +71,7 @@ OptionsWidget_privmsg::OptionsWidget_privmsg(QWidget * parent)
 
 	g = addGroupBox(0, 1, 0, 1, Qt::Horizontal, __tr2qs_ctx("Nicknames", "options"));
 
-	m_pUseSmartColorSelector = addBoolSelector(g, __tr2qs_ctx("\"Smart\" nickname colors", "options"), KviOption_boolColorNicks);
+	m_pUseSmartColorSelector = addBoolSelector(g, __tr2qs_ctx("Enable smart nickname colors", "options"), KviOption_boolColorNicks);
 
 	KviTalHBox * hb = new KviTalHBox(g);
 	hb->setSpacing(4);
@@ -93,24 +93,15 @@ OptionsWidget_privmsg::OptionsWidget_privmsg(QWidget * parent)
 	QLabel * l = addLabel(g, __tr2qs_ctx("[PREFIX]nickname[!user@host][POSTFIX] message", "options"));
 
 	l->setEnabled(KVI_OPTION_BOOL(KviOption_boolUseExtendedPrivmsgView));
-	connect(b,
-	    SIGNAL(toggled(bool)),
-	    l,
-	    SLOT(setEnabled(bool)));
+	connect(b, SIGNAL(toggled(bool)), l, SLOT(setEnabled(bool)));
 
 	KviTalVBox * vb = new KviTalVBox(g);
-	vb->setSpacing(5);
+	vb->setSpacing(8);
 
-	connect(
-	    b,
-	    SIGNAL(toggled(bool)),
-	    addStringSelector(vb, __tr2qs_ctx("Prefix:", "options"), KviOption_stringExtendedPrivmsgPrefix, KVI_OPTION_BOOL(KviOption_boolUseExtendedPrivmsgView)),
-	    SLOT(setEnabled(bool)));
-	connect(
-	    b,
-	    SIGNAL(toggled(bool)),
-	    addStringSelector(vb, __tr2qs_ctx("Postfix:", "options"), KviOption_stringExtendedPrivmsgPostfix, KVI_OPTION_BOOL(KviOption_boolUseExtendedPrivmsgView)),
-	    SLOT(setEnabled(bool)));
+	connect(b,SIGNAL(toggled(bool)), addStringSelector(vb, __tr2qs_ctx("Prefix:", "options"),
+	    KviOption_stringExtendedPrivmsgPrefix, KVI_OPTION_BOOL(KviOption_boolUseExtendedPrivmsgView)), SLOT(setEnabled(bool)));
+	connect(b, SIGNAL(toggled(bool)), addStringSelector(vb, __tr2qs_ctx("Postfix:", "options"),
+	    KviOption_stringExtendedPrivmsgPostfix, KVI_OPTION_BOOL(KviOption_boolUseExtendedPrivmsgView)), SLOT(setEnabled(bool)));
 	addRowSpacer(0, 3, 0, 3);
 }
 

@@ -872,8 +872,7 @@ bool DccVideoWindow::event(QEvent * e)
 								default: // also case KviCryptEngine::DecryptError
 								{
 									QString szErr = cinf->m_pEngine->lastError();
-									output(KVI_OUT_SYSTEMERROR,
-									    __tr2qs_ctx("The following message appears to be encrypted, but the encryption engine failed to decode it: %Q", "dcc"),
+									output(KVI_OUT_SYSTEMERROR, __tr2qs_ctx("The following message appears to be encrypted, but the encryption engine failed to decode it: %Q", "dcc"),
 									    &szErr);
 								}
 								break;

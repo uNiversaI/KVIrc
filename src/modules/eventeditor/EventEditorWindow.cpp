@@ -212,29 +212,21 @@ void EventEditor::itemPressed(QTreeWidgetItem * it, const QPoint & pnt)
 		{
 			QString tmp;
 			if(!(((EventEditorHandlerTreeWidgetItem *)it)->m_bEnabled))
-				m_pContextPopup->addAction(
-				    *(g_pIconManager->getSmallIcon(KviIconManager::Handler)),
+				m_pContextPopup->addAction(*(g_pIconManager->getSmallIcon(KviIconManager::Handler)),
 				    __tr2qs_ctx("&Enable Handler", "editor"), this, SLOT(toggleCurrentHandlerEnabled()));
 			else
-				m_pContextPopup->addAction(
-				    *(g_pIconManager->getSmallIcon(KviIconManager::HandlerDisabled)),
+				m_pContextPopup->addAction(*(g_pIconManager->getSmallIcon(KviIconManager::HandlerDisabled)),
 				    __tr2qs_ctx("&Disable Handler", "editor"), this, SLOT(toggleCurrentHandlerEnabled()));
 
-			m_pContextPopup->addAction(
-			    *(g_pIconManager->getSmallIcon(KviIconManager::Discard)),
-			    __tr2qs_ctx("Re&move Handler", "editor"),
-			    this, SLOT(removeCurrentHandler()));
-			m_pContextPopup->addAction(
-			    *(g_pIconManager->getSmallIcon(KviIconManager::Save)),
-			    __tr2qs_ctx("&Export Handler to...", "editor"),
-			    this, SLOT(exportCurrentHandler()));
+			m_pContextPopup->addAction(*(g_pIconManager->getSmallIcon(KviIconManager::Discard)),
+			    __tr2qs_ctx("Re&move Handler", "editor"), this, SLOT(removeCurrentHandler()));
+			m_pContextPopup->addAction(*(g_pIconManager->getSmallIcon(KviIconManager::Save)),
+			    __tr2qs_ctx("&Export Handler to...", "editor"), this, SLOT(exportCurrentHandler()));
 		}
 		else
 		{
-			m_pContextPopup->addAction(
-			    *(g_pIconManager->getSmallIcon(KviIconManager::Handler)),
-			    __tr2qs_ctx("&New Handler", "editor"),
-			    this, SLOT(addHandlerForCurrentEvent()));
+			m_pContextPopup->addAction(*(g_pIconManager->getSmallIcon(KviIconManager::Handler)),
+			    __tr2qs_ctx("&New Handler", "editor"), this, SLOT(addHandlerForCurrentEvent()));
 		}
 
 		m_pContextPopup->popup(pnt);

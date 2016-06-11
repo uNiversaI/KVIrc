@@ -203,8 +203,7 @@ void KviIrcServerParser::parseNumeric004(KviIrcMessage * msg)
 	if(!_OUTPUT_MUTE)
 	{
 		if(!msg->haltOutput())
-			msg->console()->output(KVI_OUT_SERVERINFO,
-			    __tr2qs("Server %Q version %S supporting user modes '%S' and channel modes '%S'"),
+			msg->console()->output(KVI_OUT_SERVERINFO, __tr2qs("Server %Q version %S supporting user modes '%S' and channel modes '%S'"),
 			    &szServer, &version, &umodes, &chanmodes);
 	}
 }
@@ -1186,8 +1185,7 @@ void KviIrcServerParser::parseLoginNicknameProblem(KviIrcMessage * msg)
 	if(!msg->haltOutput())
 	{
 		msg->console()->output(
-		    KVI_OUT_NICKNAMEPROBLEM,
-		    __tr2qs("No way to login as \r!n\r%1\r: the server said '%2: %3'")
+		    KVI_OUT_NICKNAMEPROBLEM, __tr2qs("No way to login as \r!n\r%1\r: the server said '%2: %3'")
 		        .arg(msg->connection()->decodeText(msg->safeParam(1)))
 		        .arg(msg->numeric())
 		        .arg(msg->connection()->decodeText(msg->safeTrailing())));
@@ -1237,8 +1235,7 @@ void KviIrcServerParser::parseNumericBanOnChan(KviIrcMessage * msg)
 			pOut = static_cast<KviWindow *>(msg->console());
 		QString szChannel = msg->connection()->decodeText(msg->safeParam(2));
 		QString szWText = msg->connection()->decodeText(msg->safeTrailing());
-		pOut->output(KVI_OUT_JOINERROR,
-		    "\r!c\r%Q\r: %Q", &szChannel, &szWText);
+		pOut->output(KVI_OUT_JOINERROR, "\r!c\r%Q\r: %Q", &szChannel, &szWText);
 	}
 }
 
@@ -1310,8 +1307,7 @@ void KviIrcServerParser::parseNumericCantJoinChannel(KviIrcMessage * msg)
 			pOut = static_cast<KviWindow *>(msg->console());
 		QString szChannel = msg->connection()->decodeText(msg->safeParam(1));
 		QString szWText = msg->connection()->decodeText(msg->safeTrailing());
-		pOut->output(KVI_OUT_JOINERROR,
-		    "\r!c\r%Q\r: %Q", &szChannel, &szWText);
+		pOut->output(KVI_OUT_JOINERROR, "\r!c\r%Q\r: %Q", &szChannel, &szWText);
 	}
 }
 
@@ -1386,8 +1382,7 @@ void KviIrcServerParser::parseCommandSyntaxHelp(KviIrcMessage * msg)
 		KviWindow * pOut = static_cast<KviWindow *>(msg->console());
 		QString szCommand = msg->connection()->decodeText(msg->safeParam(1));
 		QString szWText = msg->connection()->decodeText(msg->safeTrailing());
-		pOut->output(KVI_OUT_HELP,
-		    __tr2qs("Command syntax %Q: %Q"), &szCommand, &szWText); // Pragma: wheee..... that should be in English :D
+		pOut->output(KVI_OUT_HELP, __tr2qs("Command syntax %Q: %Q"), &szCommand, &szWText); // Pragma: wheee..... that should be in English :D
 	}
 }
 
@@ -1502,8 +1497,7 @@ void KviIrcServerParser::parseCommandEndOfHelp(KviIrcMessage * msg)
 	{
 		KviWindow * pOut = static_cast<KviWindow *>(msg->console());
 		QString szCommand = msg->connection()->decodeText(msg->safeParam(1));
-		pOut->output(KVI_OUT_HELP,
-		    __tr2qs("End of help about %Q"), &szCommand);
+		pOut->output(KVI_OUT_HELP, __tr2qs("End of help about %Q"), &szCommand);
 	}
 }
 
@@ -1525,8 +1519,7 @@ void KviIrcServerParser::parseNumericNicknameProblem(KviIrcMessage * msg)
 		{
 			QString szNk = msg->connection()->decodeText(msg->safeParam(1));
 			QString szWText = msg->connection()->decodeText(msg->safeTrailing());
-			msg->console()->output(KVI_OUT_NICKNAMEPROBLEM,
-			    "\r!n\r%Q\r: %Q", &szNk, &szWText);
+			msg->console()->output(KVI_OUT_NICKNAMEPROBLEM, "\r!n\r%Q\r: %Q", &szNk, &szWText);
 		}
 	}
 }
@@ -2409,8 +2402,7 @@ void KviIrcServerParser::parseNumericWatch(KviIrcMessage * msg)
 	if(!msg->haltOutput())
 	{
 		KviWindow * pOut = KVI_OPTION_BOOL(KviOption_boolServerRepliesToActiveWindow) ? msg->console()->activeWindow() : static_cast<KviWindow *>(msg->console());
-		pOut->output(KVI_OUT_UNHANDLED,
-		    "[%s][%s] %s", msg->prefix(), msg->command(), msg->allParams());
+		pOut->output(KVI_OUT_UNHANDLED, "[%s][%s] %s", msg->prefix(), msg->command(), msg->allParams());
 	}
 }
 
@@ -2809,8 +2801,7 @@ void KviIrcServerParser::parseNumericCodePageSet(KviIrcMessage * msg)
 		else if(!msg->haltOutput()) // simply unhandled
 		{
 			QString szWText = msg->connection()->decodeText(msg->allParams());
-			msg->connection()->console()->output(KVI_OUT_UNHANDLED,
-			    "[%s][%s] %Q", msg->prefix(), msg->command(), &szWText);
+			msg->connection()->console()->output(KVI_OUT_UNHANDLED, "[%s][%s] %Q", msg->prefix(), msg->command(), &szWText);
 		}
 	}
 }
@@ -2843,8 +2834,7 @@ void KviIrcServerParser::parseNumericCodePageScheme(KviIrcMessage * msg)
 		if(!msg->haltOutput())
 		{
 			QString szWText = msg->connection()->decodeText(msg->allParams());
-			msg->connection()->console()->output(KVI_OUT_UNHANDLED,
-			    "[%s][%s] %Q", msg->prefix(), msg->command(), &szWText);
+			msg->connection()->console()->output(KVI_OUT_UNHANDLED, "[%s][%s] %Q", msg->prefix(), msg->command(), &szWText);
 		}
 	}
 }

@@ -85,8 +85,7 @@ KviIrcLink::~KviIrcLink()
 void KviIrcLink::linkFilterDestroyed()
 {
 	m_pLinkFilter = nullptr;
-	m_pConsole->output(KVI_OUT_SYSTEMWARNING,
-	    __tr2qs("Oops! For some reason the link filter object has been destroyed"));
+	m_pConsole->output(KVI_OUT_SYSTEMWARNING, __tr2qs("Oops! For some reason the link filter object has been destroyed"));
 }
 
 void KviIrcLink::destroySocket()
@@ -126,13 +125,13 @@ void KviIrcLink::createSocket(const QString & szLinkFilterName)
 	if(m_pLinkFilter)
 	{
 		connect(m_pLinkFilter, SIGNAL(destroyed()), this, SLOT(linkFilterDestroyed()));
-		m_pConsole->output(KVI_OUT_SYSTEMMESSAGE,
-		    __tr2qs("Using filtered IRC protocol: link filter is \"%Q\""), &szLinkFilterName);
+		m_pConsole->output(KVI_OUT_SYSTEMMESSAGE, __tr2qs("Using filtered IRC protocol: link filter is \"%Q\""),
+		    &szLinkFilterName);
 		return;
 	}
 
-	m_pConsole->output(KVI_OUT_SYSTEMWARNING,
-	    __tr2qs("Failed to set up the link filter \"%Q\", will try with plain IRC"), &szLinkFilterName);
+	m_pConsole->output(KVI_OUT_SYSTEMWARNING, __tr2qs("Failed to set up the link filter \"%Q\", will try with plain IRC"),
+	    &szLinkFilterName);
 }
 
 //
@@ -192,8 +191,7 @@ void KviIrcLink::resolverTerminated()
 	if(eError != KviError::Success)
 	{
 		QString szStrDescription(KviError::getDescription(eError));
-		m_pConsole->output(KVI_OUT_SYSTEMERROR,
-		    __tr2qs("Failed to start the connection: %Q"),
+		m_pConsole->output(KVI_OUT_SYSTEMERROR, __tr2qs("Failed to start the connection: %Q"),
 		    &szStrDescription);
 		//			&(KviError::getDescription(eError)));
 
