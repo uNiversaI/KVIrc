@@ -525,8 +525,7 @@ void ListWindow::processData(KviIrcMessage * pMsg)
 	{
 		//rfc2812 permits wildcards here (section 3.2.6)
 		QRegExp res(m_pParamsEdit->text(), Qt::CaseInsensitive, QRegExp::Wildcard);
-		if(
-		    res.exactMatch(pMsg->connection()->decodeText(pMsg->safeParam(1))) || res.exactMatch(pMsg->connection()->decodeText(pMsg->safeTrailing())))
+		if(res.exactMatch(pMsg->connection()->decodeText(pMsg->safeParam(1))) || res.exactMatch(pMsg->connection()->decodeText(pMsg->safeTrailing())))
 		{
 			m_pItemList->append(
 			    new ChannelTreeWidgetItemData(

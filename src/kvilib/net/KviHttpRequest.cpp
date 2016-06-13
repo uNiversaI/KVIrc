@@ -727,8 +727,7 @@ bool KviHttpRequest::processHeader(KviCString & szHeader)
 
 					KviUrl url(location->ptr());
 
-					if(
-					    (url.url() == m_connectionUrl.url()) || (url.url() == m_url.url()))
+					if((url.url() == m_connectionUrl.url()) || (url.url() == m_url.url()))
 					{
 						resetInternalStatus();
 						m_szLastError = __tr2qs("Redirect loop");

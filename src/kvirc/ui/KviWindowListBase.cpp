@@ -644,8 +644,7 @@ void KviClassicWindowList::insertButton(KviWindowListButton * b)
 			// sort by type now
 			for(; btn; btn = m_pButtonList->next())
 			{
-				if(
-				    (btn->kviWindow()->type() > b->kviWindow()->type()) || (btn->kviWindow()->console() != b->kviWindow()->console()))
+				if((btn->kviWindow()->type() > b->kviWindow()->type()) || (btn->kviWindow()->console() != b->kviWindow()->console()))
 				{
 					// greater type or another IRC context
 					m_pButtonList->insert(idx, b);
@@ -656,11 +655,9 @@ void KviClassicWindowList::insertButton(KviWindowListButton * b)
 				{
 					// same type!
 					// sort by name
-					if(
-					    KVI_OPTION_BOOL(KviOption_boolSortWindowListItemsByName) && (btn->kviWindow()->windowName().compare(b->kviWindow()->windowName(), Qt::CaseInsensitive) > 0))
+					if(KVI_OPTION_BOOL(KviOption_boolSortWindowListItemsByName) && (btn->kviWindow()->windowName().compare(b->kviWindow()->windowName(), Qt::CaseInsensitive) > 0))
 					{
-						// got a "higher one"
-						m_pButtonList->insert(idx, b);
+						m_pButtonList->insert(idx, b);	// got a "higher one"
 						return;
 					}
 				}

@@ -783,10 +783,9 @@ void DccBroker::renameOverwriteResume(DccDialog * box, DccDescriptor * dcc)
 			QString tmp;
 			bool bDisableResume = false;
 
-			if(
-			    (!bOk) ||                          // remote size is unknown
-			    (iRemoteSize > (quint64)fi.size()) // or it is larger than the actual size on disk
-			    )
+			// remote size is unknown
+			// or it is larger than the actual size on disk
+			if((!bOk) || (iRemoteSize > (quint64)fi.size()))
 			{
 				tmp = __tr2qs_ctx(
 				          "The file '<b>%1</b>' already exists "
@@ -826,14 +825,12 @@ void DccBroker::renameOverwriteResume(DccDialog * box, DccDescriptor * dcc)
 		}
 
 		// auto resume ?
-		if(
-		    KVI_OPTION_BOOL(KviOption_boolAutoResumeDccSendWhenAutoAccepted) && (bOk) && // only if the remote size is really known
-		    (iRemoteSize > (quint64)fi.size()) &&                                        // only if the remote size is larger than the local size
-		    (!DccFileTransfer::nonFailedTransferWithLocalFileName(dcc->szLocalFileName)) // only if there is no transfer with this local file name yet
-		    )
+		// only if the remote size is really known
+		// only if the remote size is larger than the local size
+		// only if there is no transfer with this local file name yet
+		if(KVI_OPTION_BOOL(KviOption_boolAutoResumeDccSendWhenAutoAccepted) && (bOk) && (iRemoteSize > (quint64)fi.size()) && (!DccFileTransfer::nonFailedTransferWithLocalFileName(dcc->szLocalFileName)))
 		{
-			// yep, auto resume...
-			dcc->bResume = true;
+			dcc->bResume = true; // yep, auto resume...
 			recvFileExecute(nullptr, dcc);
 		}
 		else if(iRemoteSize == (quint64)fi.size())

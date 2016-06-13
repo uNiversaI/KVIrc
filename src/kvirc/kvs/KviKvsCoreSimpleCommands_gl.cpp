@@ -302,8 +302,7 @@ namespace KviKvsCoreSimpleCommands
 		for(KviWindow * pWnd = pList->first(); pWnd; pWnd = pList->next())
 		{
 			// Search for the right socketspy
-			if(
-			    (pWnd->type() == KviWindow::SocketSpy) && (pWnd->context() == pActive->context()))
+			if((pWnd->type() == KviWindow::SocketSpy) && (pWnd->context() == pActive->context()))
 			{
 				// Ok, found... send the warning
 				pWnd->outputNoFmt(KVI_OUT_SOCKETMESSAGE, __tr2qs_ctx("The following string was injected by the user:", "kvs"));

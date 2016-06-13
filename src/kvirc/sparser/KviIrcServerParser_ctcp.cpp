@@ -832,7 +832,6 @@ void KviIrcServerParser::parseCtcpRequest(KviCtcpMessage * msg)
 	}
 	else
 	{
-
 		KviRegisteredUser * u = msg->msg->connection()->userDataBase()->registeredUser(msg->pSource->nick(), msg->pSource->user(), msg->pSource->host());
 
 		//Ignore it?
@@ -840,8 +839,7 @@ void KviIrcServerParser::parseCtcpRequest(KviCtcpMessage * msg)
 		{
 			bool bAction = msg->szTag == "ACTION";
 
-			if(
-			    (!bAction && u->isIgnoreEnabledFor(KviRegisteredUser::Ctcp)) || (bAction && u->isIgnoreEnabledFor(IS_ME(msg->msg, msg->szTarget) ? KviRegisteredUser::Query : KviRegisteredUser::Channel)))
+			if((!bAction && u->isIgnoreEnabledFor(KviRegisteredUser::Ctcp)) || (bAction && u->isIgnoreEnabledFor(IS_ME(msg->msg, msg->szTarget) ? KviRegisteredUser::Query : KviRegisteredUser::Channel)))
 			{
 				if(KVI_OPTION_BOOL(KviOption_boolVerboseIgnore))
 				{
@@ -863,16 +861,10 @@ void KviIrcServerParser::parseCtcpRequest(KviCtcpMessage * msg)
 			if(!(m_ctcpParseProcTable[i].iFlags & KVI_CTCP_MESSAGE_PARSE_TRIGGERNOEVENT))
 			{
 				QString szData = msg->msg->connection()->decodeText(msg->pData);
-				if(
-				    KVS_TRIGGER_EVENT_6_HALTED(
-				        KviEvent_OnCTCPRequest,
-				        msg->msg->console(),
-				        msg->pSource->nick(),
-				        msg->pSource->user(),
-				        msg->pSource->host(),
-				        msg->szTarget,
-				        msg->szTag,
-				        szData))
+				if(KVS_TRIGGER_EVENT_6_HALTED(KviEvent_OnCTCPRequest,
+					msg->msg->console(), msg->pSource->nick(),
+					msg->pSource->user(), msg->pSource->host(),
+					msg->szTarget, msg->szTag, szData))
 					return;
 			}
 			(this->*(m_ctcpParseProcTable[i].req))(msg);
@@ -882,16 +874,10 @@ void KviIrcServerParser::parseCtcpRequest(KviCtcpMessage * msg)
 
 	QString szData = msg->msg->connection()->decodeText(msg->pData);
 	// trigger the event on unrecognized requests too
-	if(
-	    KVS_TRIGGER_EVENT_6_HALTED(
-	        KviEvent_OnCTCPRequest,
-	        msg->msg->console(),
-	        msg->pSource->nick(),
-	        msg->pSource->user(),
-	        msg->pSource->host(),
-	        msg->szTarget,
-	        msg->szTag,
-	        szData))
+	if(KVS_TRIGGER_EVENT_6_HALTED(KviEvent_OnCTCPRequest,
+		msg->msg->console(), msg->pSource->nick(),
+		msg->pSource->user(), msg->pSource->host(),
+		msg->szTarget, msg->szTag, szData))
 		return;
 
 	// unknown
@@ -912,8 +898,8 @@ void KviIrcServerParser::parseCtcpReply(KviCtcpMessage * msg)
 			{
 				QString szData = msg->msg->connection()->decodeText(msg->pData);
 				if(KVS_TRIGGER_EVENT_6_HALTED(KviEvent_OnCTCPReply,
-				       msg->msg->console(), msg->pSource->nick(), msg->pSource->user(),
-				       msg->pSource->host(), msg->szTarget, msg->szTag, szData))
+					msg->msg->console(), msg->pSource->nick(), msg->pSource->user(),
+					msg->pSource->host(), msg->szTarget, msg->szTag, szData))
 					return;
 			}
 			(this->*(m_ctcpParseProcTable[i].rpl))(msg);
@@ -924,8 +910,8 @@ void KviIrcServerParser::parseCtcpReply(KviCtcpMessage * msg)
 	QString szData = msg->msg->connection()->decodeText(msg->pData);
 	// trigger the event on unrecognized replies too
 	if(KVS_TRIGGER_EVENT_6_HALTED(KviEvent_OnCTCPReply,
-	       msg->msg->console(), msg->pSource->nick(), msg->pSource->user(),
-	       msg->pSource->host(), msg->szTarget, msg->szTag, szData))
+		msg->msg->console(), msg->pSource->nick(), msg->pSource->user(),
+		msg->pSource->host(), msg->szTarget, msg->szTag, szData))
 		return;
 
 	// unknown

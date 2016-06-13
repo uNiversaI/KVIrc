@@ -273,8 +273,7 @@ bool KviCustomToolBar::eventFilter(QObject * o, QEvent * e)
 		{
 			if(o->isWidgetType())
 			{
-				if(
-				    o->inherits("KviToolBarGraphicalApplet") || o->inherits("QToolButton"))
+				if(o->inherits("KviToolBarGraphicalApplet") || o->inherits("QToolButton"))
 				{
 					QWidget * pMovedWidget = (QWidget *)o;
 					g_pDraggedAction = actionForWidget(pMovedWidget);

@@ -212,9 +212,7 @@ bool KvsObject_wrapper::init(KviKvsRunTimeContext * pContext, KviKvsVariantList 
 			szName = "";
 		}
 
-		if(
-		    KviQString::equalCI(szClass, "!Window") || KviQString::equalCI(szClass, "WinId") // compat
-		    )
+		if(KviQString::equalCI(szClass, "!Window") || KviQString::equalCI(szClass, "WinId")) // compat
 		{
 			if(pWidget)
 				pContext->warning(__tr2qs_ctx("The window identifier preceded by '!Window' should be the first in the search path", "objects"));
@@ -288,10 +286,7 @@ QWidget * KvsObject_wrapper::findTopLevelWidgetToWrap(const QString & szClass, c
 	Q_FOREACH(QWidget * w, list)
 	{
 		//qDebug("TLW: %s::%s (look for %s::%s)",w->metaObject()->className(),w->objectName().toUtf8().data(),szClass.toUtf8().data(),szName.toUtf8().data());
-		if(
-		    (
-		        szClass.isEmpty() || KviQString::equalCI(w->metaObject()->className(), szClass))
-		    && (szName.isEmpty() || KviQString::equalCI(w->objectName(), szName)))
+		if((szClass.isEmpty() || KviQString::equalCI(w->metaObject()->className(), szClass)) && (szName.isEmpty() || KviQString::equalCI(w->objectName(), szName)))
 			return w;
 	}
 
@@ -320,10 +315,7 @@ QWidget * KvsObject_wrapper::findWidgetToWrap(const QString & szClass, const QSt
 			continue;
 
 		QWidget * w = (QWidget *)obj;
-		if(
-		    (
-		        szClass.isEmpty() || KviQString::equalCI(w->metaObject()->className(), szClass))
-		    && (szName.isEmpty() || KviQString::equalCI(w->objectName(), szName)))
+		if((szClass.isEmpty() || KviQString::equalCI(w->metaObject()->className(), szClass)) && (szName.isEmpty() || KviQString::equalCI(w->objectName(), szName)))
 			return w;
 	}
 

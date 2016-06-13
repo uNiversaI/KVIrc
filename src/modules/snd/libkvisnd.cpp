@@ -386,11 +386,9 @@ bool KviSoundPlayer::play(const QString & szFileName)
 
 	if(!e)
 	{
-		if(
-		    (!KVI_OPTION_STRING(KviOption_stringSoundSystem).isEmpty()) && (!KviQString::equalCI(KVI_OPTION_STRING(KviOption_stringSoundSystem), "unknown")))
+		if((!KVI_OPTION_STRING(KviOption_stringSoundSystem).isEmpty()) && (!KviQString::equalCI(KVI_OPTION_STRING(KviOption_stringSoundSystem), "unknown")))
 		{
-			qDebug(
-			    "Sound system '%s' is not valid, you may want to re-configure it in the options dialog...",
+			qDebug("Sound system '%s' is not valid, you may want to re-configure it in the options dialog...",
 			    KVI_OPTION_STRING(KviOption_stringSoundSystem).toUtf8().data());
 			return false; // detection already attempted (and failed?)
 		}

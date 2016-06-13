@@ -241,8 +241,7 @@ int KviIrcUrl::run(const QString & text, int contextSpec, KviConsoleWindow * pCo
 			if(pTmpConsole->connection())
 			{
 				KviIrcServer * server = pTmpConsole->connection()->target()->server();
-				if(
-				    (server->hostName() == parts.szHost) && (server->port() == parts.iPort) && (server->useSSL() == parts.bSsl) && (server->isIPv6() == parts.bIPv6))
+				if((server->hostName() == parts.szHost) && (server->port() == parts.iPort) && (server->useSSL() == parts.bSsl) && (server->isIPv6() == parts.bIPv6))
 				{
 					pConsole = pTmpConsole;
 					bAlreadyConnected = true;
@@ -273,8 +272,7 @@ int KviIrcUrl::run(const QString & text, int contextSpec, KviConsoleWindow * pCo
 				if(pTmpConsole->connection())
 				{
 					KviIrcServer * server = pTmpConsole->connection()->target()->server();
-					if(
-					    (server->hostName() == parts.szHost) && (server->port() == parts.iPort) && (server->useSSL() == parts.bSsl) && (server->isIPv6() == parts.bIPv6))
+					if((server->hostName() == parts.szHost) && (server->port() == parts.iPort) && (server->useSSL() == parts.bSsl) && (server->isIPv6() == parts.bIPv6))
 					{
 						pConsole = pTmpConsole;
 						bAlreadyConnected = true;

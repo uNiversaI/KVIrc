@@ -241,8 +241,7 @@ void KviTreeWindowListTreeWidget::wheelEvent(QWheelEvent * e)
 		if(!pBar->isVisible())
 			return;
 
-		if(
-		    ((e->delta() < 0) && (pBar->value() < pBar->maximum())) || ((e->delta() > 0) && (pBar->value() > pBar->minimum())))
+		if(((e->delta() < 0) && (pBar->value() < pBar->maximum())) || ((e->delta() > 0) && (pBar->value() > pBar->minimum())))
 			QApplication::sendEvent(pBar, e);
 	}
 }

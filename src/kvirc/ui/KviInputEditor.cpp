@@ -425,8 +425,7 @@ void KviInputEditor::splitTextIntoSpellCheckerBlocks(const QString & szText, Kvi
 			static QString szPart("part");
 			static QString szQuit("quit");
 
-			if(
-			    (szCommand != szMe) && (szCommand != szMsg) && (szCommand != szSay) && (szCommand != szPart) && (szCommand != szQuit))
+			if((szCommand != szMe) && (szCommand != szMsg) && (szCommand != szSay) && (szCommand != szPart) && (szCommand != szQuit))
 			{
 				// the command parameters usually have no spellcheckable text
 				ADD_SPELLCHECKER_BLOCK(lBuffer, QString(pCommandBlockBegin, e - pCommandBlockBegin), 0, false, false);
@@ -540,8 +539,7 @@ void KviInputEditor::rebuildTextBlocks()
 		return;                   // nothing to do
 
 #define NOT_CONTROL_CHAR() \
-	(                      \
-	    (c > 32) || ((c != KviControlCodes::Color) && (c != KviControlCodes::Bold) && (c != KviControlCodes::Italic) && (c != KviControlCodes::Underline) && (c != KviControlCodes::Reset) && (c != KviControlCodes::Reverse) && (c != KviControlCodes::CryptEscape) && (c != KviControlCodes::Icon)))
+	((c > 32) || ((c != KviControlCodes::Color) && (c != KviControlCodes::Bold) && (c != KviControlCodes::Italic) && (c != KviControlCodes::Underline) && (c != KviControlCodes::Reset) && (c != KviControlCodes::Reverse) && (c != KviControlCodes::CryptEscape) && (c != KviControlCodes::Icon)))
 
 	// FIXME: get rid of getLastFontMetrics() ?
 	QFontMetricsF * fm = getLastFontMetrics(font());

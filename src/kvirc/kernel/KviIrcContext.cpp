@@ -451,8 +451,7 @@ void KviIrcContext::connectToCurrentServer()
 		if(m_pAsynchronousConnectionData->szServer.isEmpty())
 		{
 			// an empty server might mean "reuse the last server in context"
-			if(
-			    m_pAsynchronousConnectionData->bUseLastServerInContext && m_pSavedAsynchronousConnectionData)
+			if(m_pAsynchronousConnectionData->bUseLastServerInContext && m_pSavedAsynchronousConnectionData)
 			{
 				// reuse the saved connection data
 				// the server for sure
