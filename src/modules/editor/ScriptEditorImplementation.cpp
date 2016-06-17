@@ -448,7 +448,6 @@ QString ScriptEditorWidget::textUnderCursor() const
 
 bool ScriptEditorWidget::contextSensitiveHelp() const
 {
-
 	QRect r = cursorRect();
 	QTextCursor cur = cursorForPosition(QPoint(r.x(), r.y()));
 	cur.select(QTextCursor::WordUnderCursor);
@@ -521,7 +520,7 @@ void ScriptEditorWidgetColorOptions::okClicked()
 ScriptEditorSyntaxHighlighter::ScriptEditorSyntaxHighlighter(ScriptEditorWidget * pWidget)
     : QSyntaxHighlighter(pWidget), m_pTextEdit(pWidget)
 {
-	// code adpated from QT4 example
+	// code adapted from QT4 example
 
 	// FIX-ME: "function ..." - "function internal ..."
 	// FIX-ME: "@$"
