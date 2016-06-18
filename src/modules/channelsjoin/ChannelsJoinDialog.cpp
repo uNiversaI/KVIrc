@@ -65,6 +65,11 @@ ChannelsJoinDialog::ChannelsJoinDialog(const char * name)
 
 	QGridLayout * g = new QGridLayout(this);
 
+	QStringList columnLabels;
+	columnLabels.append(__tr2qs("Channel Name"));
+	columnLabels.append(__tr2qs("Channel Password"));
+	m_pTreeWidget->setHeaderLabels(columnLabels);
+
 	m_pTreeWidget = new ChannelsJoinDialogTreeWidget(this);
 	m_pTreeWidget->setHeaderLabel(__tr2qs("Channel"));
 	m_pTreeWidget->setRootIsDecorated(true);
