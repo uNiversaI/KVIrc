@@ -68,12 +68,12 @@ ChannelsJoinDialog::ChannelsJoinDialog(const char * name)
 	QStringList columnLabels;
 	columnLabels.append(__tr2qs("Channel Name"));
 	columnLabels.append(__tr2qs("Channel Password"));
-	m_pTreeWidget->setHeaderLabels(columnLabels);
 
 	m_pTreeWidget = new ChannelsJoinDialogTreeWidget(this);
 	m_pTreeWidget->setHeaderLabel(__tr2qs("Channel"));
 	m_pTreeWidget->setRootIsDecorated(true);
 	m_pTreeWidget->setSelectionMode(QAbstractItemView::SingleSelection);
+	m_pTreeWidget->setHeaderLabels(columnLabels);
 	g->addWidget(m_pTreeWidget, 0, 0, 1, 2);
 
 	m_pGroupBox = new KviTalGroupBox(Qt::Horizontal, __tr2qs("Channel"), this);
