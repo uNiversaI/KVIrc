@@ -110,16 +110,27 @@ OptionsWidget_proxy::OptionsWidget_proxy(QWidget * parent)
 	KviTalGroupBox * gbox = addGroupBox(0, 2, 1, 2, Qt::Horizontal, __tr2qs_ctx("Configuration", "options"));
 
 	m_pProxyLabel = new QLabel(__tr2qs_ctx("Proxy:", "options"), gbox);
+	m_pProxyLabel->setMinimumLabelWidth(225);
 	m_pProxyEdit = new QLineEdit(gbox);
+	
 	m_pPortLabel = new QLabel(__tr2qs_ctx("Port:", "options"), gbox);
+	m_pPortLabel->setMinimumLabelWidth(225);
 	m_pPortEdit = new QLineEdit(gbox);
+	
 	m_pIpLabel = new QLabel(__tr2qs_ctx("IP address:", "options"), gbox);
+	m_pIpLabel->setMinimumLabelWidth(225);
 	m_pIpEditor = new KviIpEditor(gbox, KviIpEditor::IPv4);
+	
 	m_pUserLabel = new QLabel(__tr2qs_ctx("Username:", "options"), gbox);
+	m_pUserLabel->setMinimumLabelWidth(225);
 	m_pUserEdit = new QLineEdit(gbox);
+	
 	m_pPassLabel = new QLabel(__tr2qs_ctx("Password:", "options"), gbox);
+	m_pPassLabel->setMinimumLabelWidth(225);
 	m_pPassEdit = new QLineEdit(gbox);
+	
 	m_pProtocolLabel = new QLabel(__tr2qs_ctx("Protocol:", "options"), gbox);
+	m_pProtocolLabel->setMinimumLabelWidth(225);
 	m_pProtocolBox = new QComboBox(gbox);
 
 	QStringList l;
