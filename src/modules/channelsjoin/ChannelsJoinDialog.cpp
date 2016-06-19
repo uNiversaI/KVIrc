@@ -68,7 +68,7 @@ ChannelsJoinDialog::ChannelsJoinDialog(const char * name)
 	QStringList columnLabels;
 	columnLabels.append(__tr2qs("Channel Name"));
 	columnLabels.append(__tr2qs("Channel Password"));
-	g->addWidget(columnLabels, 0, 0, 1, 2);
+	g->addWidget(columnLabels, 0);
 	
 	m_pTreeWidget = new ChannelsJoinDialogTreeWidget(this);
 	m_pTreeWidget->setHeaderLabel(__tr2qs("Channel"));
