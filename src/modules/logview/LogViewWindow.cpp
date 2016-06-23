@@ -140,7 +140,7 @@ LogViewWindow::LogViewWindow()
 
 	QLabel * pLabel;
 	pLabel = new QLabel(__tr2qs_ctx("Contents Filter", "log"), m_pSearchTab);
-	pLayout->addWidget(pLabel, 5, 0, 1, 2);
+	pLayout->addWidget(pLabel, 5, 0);
 
 	pLabel = new QLabel(__tr2qs_ctx("Log name mask:", "log"), m_pSearchTab);
 	m_pFileNameMask = new QLineEdit(m_pSearchTab);
