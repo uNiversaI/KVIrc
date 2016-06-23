@@ -396,7 +396,23 @@ void KviConsoleWindow::saveProperties(KviConfigurationFile * cfg)
 
 void KviConsoleWindow::getBaseLogFileName(QString & buffer)
 {
-	buffer = QString("CONSOLE_%1").arg(context()->id());
+	//buffer = QString("CONSOLE_%1").arg(context()->id());
+
+	if(connection())
+	{
+		buffer = QString("CONSOLE_%1").arg(context()->id());
+		buffer += "_";
+		buffer.append(connection()->currentNetworkName().toUtf8().data());
+	}
+	else
+	{
+		buffer = QString("CONSOLE");
+		buffer += "_";
+		if(context())
+			buffer.append(context()->id());
+		else
+			buffer += "0";
+	}	
 }
 
 void KviConsoleWindow::showNotifyList(bool bShow, bool bIgnoreSizeChange)
