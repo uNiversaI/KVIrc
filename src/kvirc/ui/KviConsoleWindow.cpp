@@ -397,10 +397,10 @@ void KviConsoleWindow::saveProperties(KviConfigurationFile * cfg)
 void KviConsoleWindow::getBaseLogFileName(QString & buffer)
 {
 	//buffer = QString("CONSOLE_%1").arg(context()->id());
+	buffer = QString("CONSOLE_%1").arg(context()->id());
 
 	if(connection())
 	{
-		buffer = QString("CONSOLE_%1").arg(context()->id());
 		buffer += "_";
 		buffer.append(connection()->currentNetworkName().toUtf8().data());
 	}
