@@ -143,7 +143,7 @@ OptionsWidget_inputFeatures::OptionsWidget_inputFeatures(QWidget * parent)
 	addBoolSelector(0, 1, 0, 1, __tr2qs_ctx("Enable the input history logging", "options"), KviOption_boolEnableInputHistory); //G&N 2005
 	addBoolSelector(0, 2, 0, 2, __tr2qs_ctx("Hide input tool buttons by default", "options"), KviOption_boolHideInputToolButtons);
 	addBoolSelector(0, 3, 0, 3, __tr2qs_ctx("Show warning about pasting multiple lines", "options"), KviOption_boolWarnAboutPastingMultipleLines);
-	addBoolSelector(0, 4, 0, 4, __tr2qs_ctx("Commandline in user-friendly mode by default", "options"), KviOption_boolCommandlineInUserFriendlyModeByDefault);
+	addBoolSelector(0, 4, 0, 4, __tr2qs_ctx("Command-line in user-friendly mode by default", "options"), KviOption_boolCommandlineInUserFriendlyModeByDefault);
 	u = addUIntSelector(0, 5, 0, 5, __tr2qs_ctx("Expand tabulations in input using:", "options"), KviOption_uintSpacesToExpandTabulationInput, 1, 24, 8, true);
 	u->setSuffix(__tr2qs_ctx(" spaces", "options"));
 
@@ -161,7 +161,13 @@ OptionsWidget_inputFeatures::OptionsWidget_inputFeatures(QWidget * parent)
 	KviUIntSelector * f = addUIntSelector(0, 8, 0, 8, __tr2qs_ctx("Custom cursor width:", "options"), KviOption_uintCustomCursorWidth, 1, 24, 8, KVI_OPTION_BOOL(KviOption_boolEnableCustomCursorWidth));
 	f->setSuffix(__tr2qs_ctx(" pixels", "options"));
 	connect(d, SIGNAL(toggled(bool)), f, SLOT(setEnabled(bool)));
-	addRowSpacer(0, 9, 0, 9);
+	KviBoolSelector * h = addBoolSelector(0, 9, 0, 9, __tr2qs_ctx("Show current nickname on input line", "options"), KviOption_boolShowCurrentNickNameOnInputLine);
+	mergeTip(h, __tr2qs_ctx("This option shows your current nickname by input line. "
+	                        "Enable this if you use different nicknames across networks "
+	                        "or different nicknames on same network in different channels and often get confused "
+	                        "over which nickname belongs where.", "options"));
+	
+	addRowSpacer(0, 10, 0, 10);
 }
 
 OptionsWidget_inputFeatures::~OptionsWidget_inputFeatures()

@@ -97,7 +97,7 @@ DECLARE_OPTION_STRUCT(KviStringListOption, QStringList)
 #define KviOption_boolInputHistoryCursorAtEnd 5                                /* interface::features::components::input */
 #define KviOption_boolAvoidParserWarnings 6                                    /* ircengine::uparser */
 #define KviOption_boolUseProxyHost 7                                           /* transport */
-//#define KviOption_boolShowGeneralOptionsDialogAsToplevel 8                     /* interface::features::global */ // UNUSED
+#define KviOption_boolShowCurrentNickNameOnInputLine 8                         /* interface::features::components::input */
 #define KviOption_boolForceBrutalQuit 9                                        /* irc */
 #define KviOption_boolShowPingPong 10                                          /* ircoutput */
 #define KviOption_boolPopupNotifierOnNewQueryMessages 11                       /* query */
