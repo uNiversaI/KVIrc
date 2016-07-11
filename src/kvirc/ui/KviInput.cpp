@@ -158,6 +158,9 @@ KviInput::KviInput(KviWindow * pPar, KviUserListView * pView)
 	KviTalToolTip::add(m_pMultiEditorButton, szTip);
 
 	connect(m_pMultiEditorButton, SIGNAL(toggled(bool)), this, SLOT(multiLineEditorButtonToggled(bool)));
+	
+	m_pNicknameLabel = new QLabel(QString("Nickname"), this);
+	m_pNicknameLabel->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum));
 
 	m_pInputEditor = new KviInputEditor(this, pPar, pView);
 	connect(m_pInputEditor, SIGNAL(enterPressed()), this, SLOT(inputEditorEnterPressed()));
@@ -169,9 +172,10 @@ KviInput::KviInput(KviWindow * pPar, KviUserListView * pView)
 	m_pHistoryButton->setAutoRaise(true);
 	m_pHideToolsButton->setAutoRaise(true);
 
-	m_pLayout->addWidget(m_pHideToolsButton, 0, 2, 2, 1);
-	m_pLayout->addWidget(m_pButtonContainer, 0, 1, 2, 1);
-	m_pLayout->addWidget(m_pInputEditor, 0, 0, 2, 1);
+	m_pLayout->addWidget(m_pHideToolsButton, 0, 3, 2, 1);
+	m_pLayout->addWidget(m_pButtonContainer, 0, 2, 2, 1);
+	m_pLayout->addWidget(m_pNicknameLabel, 0, 0, 2, 1);
+	m_pLayout->addWidget(m_pInputEditor, 0, 1, 2, 1);
 
 	installShortcuts();
 }

@@ -70,6 +70,7 @@ public:
 
 public:
 	KviWindow * m_pWindow;
+	QLabel * m_pNicknameLabel;
 	KviInputEditor * m_pInputEditor;
 	KviScriptEditor * m_pMultiLineEditor;
 	KviTalHBox * m_pButtonContainer;
