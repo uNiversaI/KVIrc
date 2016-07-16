@@ -168,6 +168,7 @@ void KviMenuBar::updateSettingsPopup()
 	m_pMenuBarAction->setChecked(true);
 #endif
 	m_pWindowListAction->setChecked(KVI_OPTION_BOOL(KviOption_boolUseTreeWindowList));
+	m_pWindowListAction->setChecked(KVI_OPTION_BOOL(KviOption_boolMenuBarVisible));
 }
 
 void KviMenuBar::setupSettingsPopup(QMenu * pop)
