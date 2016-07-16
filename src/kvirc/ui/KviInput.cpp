@@ -137,7 +137,7 @@ KviInput::KviInput(KviWindow * pPar, KviUserListView * pView)
 	is0.addPixmap(*(g_pIconManager->getSmallIcon(KviIconManager::SayKvs)), QIcon::Normal, QIcon::Off);
 	m_pCommandlineModeButton->setIcon(is0);
 	KviTalToolTip::add(m_pCommandlineModeButton, __tr2qs("User friendly command-line mode Ctrl+Y<br>See also /help commandline"));
-	
+
 	if(KVI_OPTION_BOOL(KviOption_boolCommandlineInUserFriendlyModeByDefault))
 		m_pCommandlineModeButton->setChecked(true);
 
@@ -158,9 +158,13 @@ KviInput::KviInput(KviWindow * pPar, KviUserListView * pView)
 	KviTalToolTip::add(m_pMultiEditorButton, szTip);
 
 	connect(m_pMultiEditorButton, SIGNAL(toggled(bool)), this, SLOT(multiLineEditorButtonToggled(bool)));
-	
-	m_pNicknameLabel = new QLabel(QString("Nickname"), this);
-	m_pNicknameLabel->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum));
+
+	m_pNicknameButton = new QToolButton(this);
+	m_pNicknameButton->setText("Nickname");
+	m_pNicknameButton->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Ignored);
+
+	if(!KVI_OPTION_BOOL(KviOption_boolShowCurrentNickNameOnInputLine))
+		m_pNicknameButton->setVisible(false);
 
 	m_pInputEditor = new KviInputEditor(this, pPar, pView);
 	connect(m_pInputEditor, SIGNAL(enterPressed()), this, SLOT(inputEditorEnterPressed()));
@@ -171,12 +175,13 @@ KviInput::KviInput(KviWindow * pPar, KviUserListView * pView)
 	m_pIconButton->setAutoRaise(true);
 	m_pHistoryButton->setAutoRaise(true);
 	m_pHideToolsButton->setAutoRaise(true);
+	m_pNicknameButton->setAutoRaise(true);
 
-	m_pLayout->addWidget(m_pHideToolsButton, 0, 3, 2, 1);
-	m_pLayout->addWidget(m_pButtonContainer, 0, 2, 2, 1);
-	m_pLayout->addWidget(m_pNicknameLabel, 0, 0, 2, 1);
-	m_pLayout->addWidget(m_pInputEditor, 0, 1, 2, 1);
-
+	m_pLayout->addWidget(m_pNicknameButton, 0, 0);
+	m_pLayout->addWidget(m_pInputEditor, 0, 1);
+	m_pLayout->addWidget(m_pButtonContainer, 0, 2);
+	m_pLayout->addWidget(m_pHideToolsButton, 0, 3);
+	
 	installShortcuts();
 }
 
@@ -422,6 +427,17 @@ void KviInput::applyOptions()
 		m_pHistoryButton->setIcon(is1);
 		KviTalToolTip::add(m_pHistoryButton, __tr2qs("Input history disabled"));
 		m_pHistoryButton->disconnect(SIGNAL(clicked()));
+	}
+
+	if(KVI_OPTION_BOOL(KviOption_boolShowCurrentNickNameOnInputLine))
+	{
+		if(m_pNicknameButton->isHidden())
+			m_pNicknameButton->setVisible(true);
+	}
+	else
+	{
+		if(m_pNicknameButton->isVisible())
+			m_pNicknameButton->setVisible(false);
 	}
 
 	m_pInputEditor->applyOptions();

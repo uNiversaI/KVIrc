@@ -70,7 +70,6 @@ public:
 
 public:
 	KviWindow * m_pWindow;
-	QLabel * m_pNicknameLabel;
 	KviInputEditor * m_pInputEditor;
 	KviScriptEditor * m_pMultiLineEditor;
 	KviTalHBox * m_pButtonContainer;
@@ -79,6 +78,7 @@ public:
 	QToolButton * m_pIconButton;
 	QToolButton * m_pCommandlineModeButton;
 	QToolButton * m_pHideToolsButton;
+	QToolButton * m_pNicknameButton;
 	QGridLayout * m_pLayout;
 	QLabel * m_pHelpLabel;
 

@@ -164,8 +164,8 @@ OptionsWidget_inputFeatures::OptionsWidget_inputFeatures(QWidget * parent)
 	KviBoolSelector * h = addBoolSelector(0, 9, 0, 9, __tr2qs_ctx("Show current nickname on input line", "options"), KviOption_boolShowCurrentNickNameOnInputLine);
 	mergeTip(h, __tr2qs_ctx("This option shows your current nickname by input line. "
 	                        "Enable this if you use different nicknames across networks "
-	                        "or different nicknames on same network in different channels and often get confused "
-	                        "over which nickname belongs where.", "options"));
+	                        "or different nicknames on same network in separate channels and are "
+	                        "likely to be confused over which nickname belongs where.", "options"));
 	
 	addRowSpacer(0, 10, 0, 10);
 }
