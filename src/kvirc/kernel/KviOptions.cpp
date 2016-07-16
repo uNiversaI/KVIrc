@@ -69,7 +69,7 @@ KviBoolOption g_boolOptionsTable[KVI_NUM_BOOL_OPTIONS] = {
 	BOOL_OPTION("InputHistoryCursorAtEnd", true, KviOption_sectFlagInput),
 	BOOL_OPTION("AvoidParserWarnings", false, KviOption_sectFlagUserParser),
 	BOOL_OPTION("UseProxyHost", false, KviOption_sectFlagConnection),
-	BOOL_OPTION("ShowCurrentNickNameOnInputLine", false, KviOption_sectFlagInput),
+	BOOL_OPTION("ShowCurrentNickNameOnInputLine", false, KviOption_sectFlagInput | KviOption_resetUpdateGui),
 	BOOL_OPTION("ForceBrutalQuit", false, KviOption_sectFlagIrcSocket),
 	BOOL_OPTION("ShowPingPong", true, KviOption_sectFlagConnection),
 	BOOL_OPTION("PopupNotifierOnNewQueryMessages", true, KviOption_sectFlagFrame),

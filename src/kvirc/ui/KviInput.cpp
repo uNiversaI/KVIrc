@@ -181,7 +181,7 @@ KviInput::KviInput(KviWindow * pPar, KviUserListView * pView)
 	m_pLayout->addWidget(m_pInputEditor, 0, 1);
 	m_pLayout->addWidget(m_pButtonContainer, 0, 2);
 	m_pLayout->addWidget(m_pHideToolsButton, 0, 3);
-	
+
 	installShortcuts();
 }
 
@@ -430,15 +430,9 @@ void KviInput::applyOptions()
 	}
 
 	if(KVI_OPTION_BOOL(KviOption_boolShowCurrentNickNameOnInputLine))
-	{
-		if(m_pNicknameButton->isHidden())
-			m_pNicknameButton->setVisible(true);
-	}
+		m_pNicknameButton->setVisible(true);
 	else
-	{
-		if(m_pNicknameButton->isVisible())
-			m_pNicknameButton->setVisible(false);
-	}
+		m_pNicknameButton->setVisible(false);
 
 	m_pInputEditor->applyOptions();
 }
