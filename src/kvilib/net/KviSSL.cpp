@@ -294,6 +294,7 @@ KviSSL::KviSSL()
 KviSSL::~KviSSL()
 {
 	shutdown();
+	my_ssl_unlock();
 }
 
 #ifdef COMPILE_ON_WINDOWS
