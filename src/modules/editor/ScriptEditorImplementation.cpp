@@ -496,7 +496,7 @@ ScriptEditorWidgetColorOptions::ScriptEditorWidgetColorOptions(QWidget * pParent
 	gbox->setInsideSpacing(0);
 
 	addColorSelector(gbox, __tr2qs_ctx("Background:", "editor"), &g_clrBackground, true);
-	addColorSelector(gbox, __tr2qs_ctx("Background Highlight:", "editor"), &g_clrBackgroundHighlight, true);
+	addColorSelector(gbox, __tr2qs_ctx("Background highlight:", "editor"), &g_clrBackgroundHighlight, true);
 	addColorSelector(gbox, __tr2qs_ctx("Normal text:", "editor"), &g_clrNormalText, true);
 	addColorSelector(gbox, __tr2qs_ctx("Brackets:", "editor"), &g_clrBracket, true);
 	addColorSelector(gbox, __tr2qs_ctx("Comments:", "editor"), &g_clrComment, true);
